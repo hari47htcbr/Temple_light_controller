@@ -1,0 +1,2531 @@
+
+
+Microchip MPLAB XC8 Assembler V2.32 build 20210201212658 
+                                                                                               Sat Aug 27 11:48:50 2022
+
+Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1 
+     1                           	processor	18F46K22
+     2                           	fnconf	rparam,??,?,0
+     3                           	pagewidth 120
+     4                           	opt	flic
+     5                           	psect	idataCOMRAM,global,class=CODE,delta=1,noexec
+     6                           	psect	smallconst,global,reloc=2,class=SMALLCONST,delta=1,noexec
+     7                           	psect	cinit,global,reloc=2,class=CODE,delta=1
+     8                           	psect	bssCOMRAM,global,class=COMRAM,space=1,delta=1,lowdata,noexec
+     9                           	psect	dataCOMRAM,global,class=COMRAM,space=1,delta=1,lowdata,noexec
+    10                           	psect	cstackCOMRAM,global,class=COMRAM,space=1,delta=1,lowdata,noexec
+    11                           	psect	text0,global,reloc=2,class=CODE,delta=1
+    12                           	psect	text1,global,reloc=2,class=CODE,delta=1
+    13                           	psect	text2,global,reloc=2,class=CODE,delta=1
+    14                           	psect	text3,global,reloc=2,class=CODE,delta=1
+    15                           	psect	text4,global,reloc=2,class=CODE,delta=1
+    16                           	psect	text5,global,reloc=2,class=CODE,delta=1
+    17                           	psect	text6,global,reloc=2,class=CODE,delta=1
+    18                           	psect	text7,global,reloc=2,class=CODE,delta=1
+    19                           	psect	text8,global,reloc=2,class=CODE,delta=1
+    20                           	psect	text9,global,reloc=2,class=CODE,delta=1
+    21                           	psect	text10,global,reloc=2,class=CODE,delta=1
+    22                           	psect	text11,global,reloc=2,class=CODE,delta=1
+    23                           	psect	intsave_regs,global,class=BIGRAM,space=1,delta=1,noexec
+    24                           	psect	rparam,global,class=COMRAM,space=1,delta=1,noexec
+    25                           	psect	idloc,global,abs,ovrld,class=IDLOC,space=5,delta=1,noexec
+    26                           	psect	config,global,abs,ovrld,class=CONFIG,space=4,delta=1,noexec
+    27  0000                     
+    28                           ; Version 2.40
+    29                           ; Generated 17/11/2021 GMT
+    30                           ; 
+    31                           ; Copyright © 2021, Microchip Technology Inc. and its subsidiaries ("Microchip")
+    32                           ; All rights reserved.
+    33                           ; 
+    34                           ; This software is developed by Microchip Technology Inc. and its subsidiaries ("Microch
+      +                          ip").
+    35                           ; 
+    36                           ; Redistribution and use in source and binary forms, with or without modification, are
+    37                           ; permitted provided that the following conditions are met:
+    38                           ; 
+    39                           ;     1. Redistributions of source code must retain the above copyright notice, this lis
+      +                          t of
+    40                           ;        conditions and the following disclaimer.
+    41                           ; 
+    42                           ;     2. Redistributions in binary form must reproduce the above copyright notice, this 
+      +                          list
+    43                           ;        of conditions and the following disclaimer in the documentation and/or other
+    44                           ;        materials provided with the distribution. Publication is not required when
+    45                           ;        this file is used in an embedded application.
+    46                           ; 
+    47                           ;     3. Microchip's name may not be used to endorse or promote products derived from th
+      +                          is
+    48                           ;        software without specific prior written permission.
+    49                           ; 
+    50                           ; THIS SOFTWARE IS PROVIDED BY MICROCHIP "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+    51                           ; INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS F
+      +                          OR
+    52                           ; PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL MICROCHIP BE LIABLE FOR ANY DIRECT, INDIREC
+      +                          T,
+    53                           ; INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO
+    54                           ; PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA OR PROFITS; OR BUSINESS
+    55                           ; INTERRUPTION) HOWSOEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, ST
+      +                          RICT
+    56                           ; LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE U
+      +                          SE OF
+    57                           ; THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+    58                           ; 
+    59                           ; 
+    60                           ; Code-generator required, PIC18F46K22 Definitions
+    61                           ; 
+    62                           ; SFR Addresses
+    63  0000                     
+    64                           	psect	idataCOMRAM
+    65  00161A                     __pidataCOMRAM:
+    66                           	callstack 0
+    67                           
+    68                           ;initializer for _settings
+    69  00161A  53                 	db	83
+    70  00161B  65                 	db	101
+    71  00161C  74                 	db	116
+    72  00161D  74                 	db	116
+    73  00161E  69                 	db	105
+    74  00161F  6E                 	db	110
+    75  001620  67                 	db	103
+    76  001621  73                 	db	115
+    77                           
+    78                           ;initializer for _saved
+    79  001622  53                 	db	83
+    80  001623  61                 	db	97
+    81  001624  76                 	db	118
+    82  001625  65                 	db	101
+    83  001626  64                 	db	100
+    84                           
+    85                           ;initializer for _backlight
+    86  001627  01                 	db	1
+    87  0000                     _SSPCON2	set	4037
+    88  0000                     _SSPSTAT	set	4039
+    89  0000                     _PORTD	set	3971
+    90  0000                     _PORTC	set	3970
+    91  0000                     _PORTB	set	3969
+    92  0000                     _TRISD	set	3989
+    93  0000                     _TRISC	set	3988
+    94  0000                     _TRISB	set	3987
+    95  0000                     _PORTDbits	set	3971
+    96  0000                     _PORTCbits	set	3970
+    97  0000                     _PIR2bits	set	4001
+    98  0000                     _EECON2	set	4007
+    99  0000                     _PIE2bits	set	4000
+   100  0000                     _INTCONbits	set	4082
+   101  0000                     _EEDATA	set	4008
+   102  0000                     _EECON1bits	set	4006
+   103  0000                     _EEADRH	set	4010
+   104  0000                     _EEADR	set	4009
+   105  0000                     _PORTBbits	set	3969
+   106                           
+   107                           	psect	smallconst
+   108  001000                     __psmallconst:
+   109                           	callstack 0
+   110  001000  00                 	db	0
+   111  001001                     STR_1:
+   112  001001  53                 	db	83	;'S'
+   113  001002  6D                 	db	109	;'m'
+   114  001003  61                 	db	97	;'a'
+   115  001004  72                 	db	114	;'r'
+   116  001005  74                 	db	116	;'t'
+   117  001006  20                 	db	32
+   118  001007  6C                 	db	108	;'l'
+   119  001008  69                 	db	105	;'i'
+   120  001009  67                 	db	103	;'g'
+   121  00100A  68                 	db	104	;'h'
+   122  00100B  74                 	db	116	;'t'
+   123  00100C  00                 	db	0
+   124  00100D                     STR_2:
+   125  00100D  43                 	db	67	;'C'
+   126  00100E  6F                 	db	111	;'o'
+   127  00100F  6E                 	db	110	;'n'
+   128  001010  74                 	db	116	;'t'
+   129  001011  72                 	db	114	;'r'
+   130  001012  6F                 	db	111	;'o'
+   131  001013  6C                 	db	108	;'l'
+   132  001014  6C                 	db	108	;'l'
+   133  001015  65                 	db	101	;'e'
+   134  001016  72                 	db	114	;'r'
+   135  001017  00                 	db	0
+   136  001018  00                 	db	0	; dummy byte at the end
+   137  0000                     
+   138                           ; #config settings
+   139                           
+   140                           	psect	cinit
+   141  001558                     __pcinit:
+   142                           	callstack 0
+   143  001558                     start_initialization:
+   144                           	callstack 0
+   145  001558                     __initialization:
+   146                           	callstack 0
+   147                           
+   148                           ; Initialize objects allocated to COMRAM (14 bytes)
+   149                           ; load TBLPTR registers with __pidataCOMRAM
+   150  001558  0E1A               	movlw	low __pidataCOMRAM
+   151  00155A  6EF6               	movwf	tblptrl,c
+   152  00155C  0E16               	movlw	high __pidataCOMRAM
+   153  00155E  6EF7               	movwf	tblptrh,c
+   154  001560  0E00               	movlw	low (__pidataCOMRAM shr (0+16))
+   155  001562  6EF8               	movwf	tblptru,c
+   156  001564  EE00  F021         	lfsr	0,__pdataCOMRAM
+   157  001568  EE10 F00E          	lfsr	1,14
+   158  00156C                     copy_data0:
+   159  00156C  0009               	tblrd		*+
+   160  00156E  CFF5 FFEE          	movff	tablat,postinc0
+   161  001572  50E5               	movf	postdec1,w,c
+   162  001574  50E1               	movf	fsr1l,w,c
+   163  001576  E1FA               	bnz	copy_data0
+   164                           
+   165                           ; Clear objects allocated to COMRAM (16 bytes)
+   166  001578  EE00  F001         	lfsr	0,__pbssCOMRAM
+   167  00157C  0E10               	movlw	16
+   168  00157E                     clear_0:
+   169  00157E  6AEE               	clrf	postinc0,c
+   170  001580  06E8               	decf	wreg,f,c
+   171  001582  E1FD               	bnz	clear_0
+   172  001584                     end_of_initialization:
+   173                           	callstack 0
+   174  001584                     __end_of__initialization:
+   175                           	callstack 0
+   176  001584  0E00               	movlw	low (__Lsmallconst shr (0+16))
+   177  001586  6EF8               	movwf	tblptru,c
+   178  001588  0E10               	movlw	high __Lsmallconst
+   179  00158A  6EF7               	movwf	tblptrh,c
+   180  00158C  0100               	movlb	0
+   181  00158E  EF3F  F009         	goto	_main	;jump to C main() function
+   182                           
+   183                           	psect	bssCOMRAM
+   184  000001                     __pbssCOMRAM:
+   185                           	callstack 0
+   186  000001                     _status2:
+   187                           	callstack 0
+   188  000001                     	ds	2
+   189  000003                     _status1:
+   190                           	callstack 0
+   191  000003                     	ds	2
+   192  000005                     _relay:
+   193                           	callstack 0
+   194  000005                     	ds	1
+   195  000006                     _lux:
+   196                           	callstack 0
+   197  000006                     	ds	1
+   198  000007                     _l:
+   199                           	callstack 0
+   200  000007                     	ds	1
+   201  000008                     _k:
+   202                           	callstack 0
+   203  000008                     	ds	1
+   204  000009                     _j:
+   205                           	callstack 0
+   206  000009                     	ds	1
+   207  00000A                     _i:
+   208                           	callstack 0
+   209  00000A                     	ds	1
+   210  00000B                     _z:
+   211                           	callstack 0
+   212  00000B                     	ds	1
+   213  00000C                     _y:
+   214                           	callstack 0
+   215  00000C                     	ds	1
+   216  00000D                     _d:
+   217                           	callstack 0
+   218  00000D                     	ds	1
+   219  00000E                     _c:
+   220                           	callstack 0
+   221  00000E                     	ds	1
+   222  00000F                     _b:
+   223                           	callstack 0
+   224  00000F                     	ds	1
+   225  000010                     _a:
+   226                           	callstack 0
+   227  000010                     	ds	1
+   228                           
+   229                           	psect	dataCOMRAM
+   230  000021                     __pdataCOMRAM:
+   231                           	callstack 0
+   232  000021                     _settings:
+   233                           	callstack 0
+   234  000021                     	ds	8
+   235  000029                     _saved:
+   236                           	callstack 0
+   237  000029                     	ds	5
+   238  00002E                     _backlight:
+   239                           	callstack 0
+   240  00002E                     	ds	1
+   241                           
+   242                           	psect	cstackCOMRAM
+   243  000011                     __pcstackCOMRAM:
+   244                           	callstack 0
+   245  000011                     Lcd_Port@a:
+   246                           	callstack 0
+   247  000011                     memory_read@address:
+   248                           	callstack 0
+   249  000011                     memory_write@data:
+   250                           	callstack 0
+   251                           
+   252                           ; 1 bytes @ 0x0
+   253  000011                     	ds	1
+   254  000012                     ??_Lcd_Cmd:
+   255  000012                     ??_memory_write:
+   256  000012                     lcd_char@a:
+   257                           	callstack 0
+   258                           
+   259                           ; 2 bytes @ 0x1
+   260  000012                     	ds	1
+   261  000013                     Lcd_Cmd@a:
+   262                           	callstack 0
+   263  000013                     memory_write@address:
+   264                           	callstack 0
+   265                           
+   266                           ; 1 bytes @ 0x2
+   267  000013                     	ds	1
+   268  000014                     ??_lcd_init:
+   269  000014                     ??_status_check:
+   270  000014                     lcd_line@a:
+   271                           	callstack 0
+   272  000014                     lcd_char@temp:
+   273                           	callstack 0
+   274                           
+   275                           ; 2 bytes @ 0x3
+   276  000014                     	ds	2
+   277  000016                     status_check@no:
+   278                           	callstack 0
+   279  000016                     lcd_line@b:
+   280                           	callstack 0
+   281  000016                     lcd_data@a:
+   282                           	callstack 0
+   283                           
+   284                           ; 2 bytes @ 0x5
+   285  000016                     	ds	2
+   286  000018                     ??_lcd_line:
+   287  000018                     ??_lcd_data:
+   288                           
+   289                           ; 1 bytes @ 0x7
+   290  000018                     	ds	3
+   291  00001B                     lcd_line@temp:
+   292                           	callstack 0
+   293                           
+   294                           ; 2 bytes @ 0xA
+   295  00001B                     	ds	2
+   296  00001D                     ??_welcome_msg:
+   297                           
+   298                           ; 1 bytes @ 0xC
+   299  00001D                     	ds	2
+   300  00001F                     ??_main:
+   301                           
+   302                           ; 1 bytes @ 0xE
+   303  00001F                     	ds	2
+   304                           
+   305 ;;
+   306 ;;Main: autosize = 0, tempsize = 2, incstack = 0, save=0
+   307 ;;
+   308 ;; *************** function _main *****************
+   309 ;; Defined at:
+   310 ;;		line 186 in file "../Temple_Light_Controller/main.c"
+   311 ;; Parameters:    Size  Location     Type
+   312 ;;		None
+   313 ;; Auto vars:     Size  Location     Type
+   314 ;;  no              1    0        unsigned char 
+   315 ;; Return value:  Size  Location     Type
+   316 ;;                  1    wreg      void 
+   317 ;; Registers used:
+   318 ;;		wreg, status,2, status,0, tblptrl, tblptrh, tblptru, cstack
+   319 ;; Tracked objects:
+   320 ;;		On entry : 0/0
+   321 ;;		On exit  : 0/0
+   322 ;;		Unchanged: 0/0
+   323 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+   324 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   325 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   326 ;;      Temps:          2       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   327 ;;      Totals:         2       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   328 ;;Total ram usage:        2 bytes
+   329 ;; Hardware stack levels required when called: 4
+   330 ;; This function calls:
+   331 ;;		_lcd_clear
+   332 ;;		_lcd_init
+   333 ;;		_status_check
+   334 ;;		_welcome_msg
+   335 ;; This function is called by:
+   336 ;;		Startup code after reset
+   337 ;; This function uses a non-reentrant model
+   338 ;;
+   339                           
+   340                           	psect	text0
+   341  00127E                     __ptext0:
+   342                           	callstack 0
+   343  00127E                     _main:
+   344                           	callstack 27
+   345  00127E                     
+   346                           ;../Temple_Light_Controller/main.c: 189:     TRISB=0X01;
+   347  00127E  0E01               	movlw	1
+   348  001280  6E93               	movwf	147,c	;volatile
+   349                           
+   350                           ;../Temple_Light_Controller/main.c: 190:     TRISC=0X17;
+   351  001282  0E17               	movlw	23
+   352  001284  6E94               	movwf	148,c	;volatile
+   353                           
+   354                           ;../Temple_Light_Controller/main.c: 194:     TRISD=0x03;
+   355  001286  0E03               	movlw	3
+   356  001288  6E95               	movwf	149,c	;volatile
+   357  00128A                     
+   358                           ;../Temple_Light_Controller/main.c: 195:     PORTB=0xff;
+   359  00128A  6881               	setf	129,c	;volatile
+   360  00128C                     
+   361                           ;../Temple_Light_Controller/main.c: 196:     PORTC=0xff;
+   362  00128C  6882               	setf	130,c	;volatile
+   363  00128E                     
+   364                           ;../Temple_Light_Controller/main.c: 197:     PORTD=0xff;
+   365  00128E  6883               	setf	131,c	;volatile
+   366  001290                     
+   367                           ;../Temple_Light_Controller/main.c: 199:     INTCONbits.GIE = HIGH;
+   368  001290  8EF2               	bsf	242,7,c	;volatile
+   369  001292                     
+   370                           ;../Temple_Light_Controller/main.c: 200:     _delay((unsigned long)((10)*(20000000/4000.
+      +                          0)));
+   371  001292  0E41               	movlw	65
+   372  001294  6E1F               	movwf	??_main^0,c
+   373  001296  0EEE               	movlw	238
+   374  001298                     u537:
+   375  001298  2EE8               	decfsz	wreg,f,c
+   376  00129A  D7FE               	bra	u537
+   377  00129C  2E1F               	decfsz	??_main^0,f,c
+   378  00129E  D7FC               	bra	u537
+   379  0012A0  D000               	nop2	
+   380  0012A2                     
+   381                           ;../Temple_Light_Controller/main.c: 202:     status1 = SSPSTAT;
+   382  0012A2  CFC7 F003          	movff	4039,_status1	;volatile
+   383  0012A6  6A04               	clrf	(_status1+1)^0,c
+   384  0012A8                     
+   385                           ;../Temple_Light_Controller/main.c: 203:     status2 = SSPCON2;
+   386  0012A8  CFC5 F001          	movff	4037,_status2	;volatile
+   387  0012AC  6A02               	clrf	(_status2+1)^0,c
+   388  0012AE                     
+   389                           ;../Temple_Light_Controller/main.c: 205:     _delay((unsigned long)((10)*(20000000/4000.
+      +                          0)));
+   390  0012AE  0E41               	movlw	65
+   391  0012B0  6E1F               	movwf	??_main^0,c
+   392  0012B2  0EEE               	movlw	238
+   393  0012B4                     u547:
+   394  0012B4  2EE8               	decfsz	wreg,f,c
+   395  0012B6  D7FE               	bra	u547
+   396  0012B8  2E1F               	decfsz	??_main^0,f,c
+   397  0012BA  D7FC               	bra	u547
+   398  0012BC  D000               	nop2	
+   399  0012BE                     
+   400                           ;../Temple_Light_Controller/main.c: 209:     _delay((unsigned long)((10)*(20000000/4000.
+      +                          0)));
+   401  0012BE  0E41               	movlw	65
+   402  0012C0  6E1F               	movwf	??_main^0,c
+   403  0012C2  0EEE               	movlw	238
+   404  0012C4                     u557:
+   405  0012C4  2EE8               	decfsz	wreg,f,c
+   406  0012C6  D7FE               	bra	u557
+   407  0012C8  2E1F               	decfsz	??_main^0,f,c
+   408  0012CA  D7FC               	bra	u557
+   409  0012CC  D000               	nop2	
+   410  0012CE                     
+   411                           ;../Temple_Light_Controller/main.c: 210:     lcd_init();
+   412  0012CE  ECB8  F009         	call	_lcd_init	;wreg free
+   413  0012D2                     
+   414                           ;../Temple_Light_Controller/main.c: 211:     _delay((unsigned long)((10)*(20000000/4000.
+      +                          0)));
+   415  0012D2  0E41               	movlw	65
+   416  0012D4  6E1F               	movwf	??_main^0,c
+   417  0012D6  0EEE               	movlw	238
+   418  0012D8                     u567:
+   419  0012D8  2EE8               	decfsz	wreg,f,c
+   420  0012DA  D7FE               	bra	u567
+   421  0012DC  2E1F               	decfsz	??_main^0,f,c
+   422  0012DE  D7FC               	bra	u567
+   423  0012E0  D000               	nop2	
+   424  0012E2                     
+   425                           ;../Temple_Light_Controller/main.c: 212:     lcd_clear();
+   426  0012E2  EC14  F00B         	call	_lcd_clear	;wreg free
+   427  0012E6                     
+   428                           ;../Temple_Light_Controller/main.c: 213:     _delay((unsigned long)((10)*(20000000/4000.
+      +                          0)));
+   429  0012E6  0E41               	movlw	65
+   430  0012E8  6E1F               	movwf	??_main^0,c
+   431  0012EA  0EEE               	movlw	238
+   432  0012EC                     u577:
+   433  0012EC  2EE8               	decfsz	wreg,f,c
+   434  0012EE  D7FE               	bra	u577
+   435  0012F0  2E1F               	decfsz	??_main^0,f,c
+   436  0012F2  D7FC               	bra	u577
+   437  0012F4  D000               	nop2	
+   438  0012F6                     
+   439                           ;../Temple_Light_Controller/main.c: 215:     _delay((unsigned long)((10)*(20000000/4000.
+      +                          0)));
+   440  0012F6  0E41               	movlw	65
+   441  0012F8  6E1F               	movwf	??_main^0,c
+   442  0012FA  0EEE               	movlw	238
+   443  0012FC                     u587:
+   444  0012FC  2EE8               	decfsz	wreg,f,c
+   445  0012FE  D7FE               	bra	u587
+   446  001300  2E1F               	decfsz	??_main^0,f,c
+   447  001302  D7FC               	bra	u587
+   448  001304  D000               	nop2	
+   449  001306                     
+   450                           ;../Temple_Light_Controller/main.c: 216:     status_check();
+   451  001306  ECB1  F008         	call	_status_check	;wreg free
+   452  00130A                     
+   453                           ;../Temple_Light_Controller/main.c: 217:     _delay((unsigned long)((10)*(20000000/4000.
+      +                          0)));
+   454  00130A  0E41               	movlw	65
+   455  00130C  6E1F               	movwf	??_main^0,c
+   456  00130E  0EEE               	movlw	238
+   457  001310                     u597:
+   458  001310  2EE8               	decfsz	wreg,f,c
+   459  001312  D7FE               	bra	u597
+   460  001314  2E1F               	decfsz	??_main^0,f,c
+   461  001316  D7FC               	bra	u597
+   462  001318  D000               	nop2	
+   463  00131A                     
+   464                           ;../Temple_Light_Controller/main.c: 219:     _delay((unsigned long)((10)*(20000000/4000.
+      +                          0)));
+   465  00131A  0E41               	movlw	65
+   466  00131C  6E1F               	movwf	??_main^0,c
+   467  00131E  0EEE               	movlw	238
+   468  001320                     u607:
+   469  001320  2EE8               	decfsz	wreg,f,c
+   470  001322  D7FE               	bra	u607
+   471  001324  2E1F               	decfsz	??_main^0,f,c
+   472  001326  D7FC               	bra	u607
+   473  001328  D000               	nop2	
+   474  00132A                     
+   475                           ;../Temple_Light_Controller/main.c: 220:     welcome_msg();
+   476  00132A  EC25  F00A         	call	_welcome_msg	;wreg free
+   477  00132E                     
+   478                           ;../Temple_Light_Controller/main.c: 221:     _delay((unsigned long)((2000)*(20000000/400
+      +                          0.0)));
+   479  00132E  0E33               	movlw	51
+   480  001330  6E20               	movwf	(??_main+1)^0,c
+   481  001332  0EBB               	movlw	187
+   482  001334  6E1F               	movwf	??_main^0,c
+   483  001336  0EE0               	movlw	224
+   484  001338                     u617:
+   485  001338  2EE8               	decfsz	wreg,f,c
+   486  00133A  D7FE               	bra	u617
+   487  00133C  2E1F               	decfsz	??_main^0,f,c
+   488  00133E  D7FC               	bra	u617
+   489  001340  2E20               	decfsz	(??_main+1)^0,f,c
+   490  001342  D7FA               	bra	u617
+   491  001344                     l1398:
+   492                           
+   493                           ;../Temple_Light_Controller/main.c: 226:     {;../Temple_Light_Controller/main.c: 227:  
+      +                                 _delay((unsigned long)((10)*(20000000/4000.0)));
+   494  001344  0E41               	movlw	65
+   495  001346  6E1F               	movwf	??_main^0,c
+   496  001348  0EEE               	movlw	238
+   497  00134A                     u627:
+   498  00134A  2EE8               	decfsz	wreg,f,c
+   499  00134C  D7FE               	bra	u627
+   500  00134E  2E1F               	decfsz	??_main^0,f,c
+   501  001350  D7FC               	bra	u627
+   502  001352  D000               	nop2	
+   503  001354                     
+   504                           ;../Temple_Light_Controller/main.c: 228:         status_check();
+   505  001354  ECB1  F008         	call	_status_check	;wreg free
+   506  001358                     
+   507                           ;../Temple_Light_Controller/main.c: 229:         _delay((unsigned long)((1)*(20000000/40
+      +                          00.0)));
+   508  001358  0E07               	movlw	7
+   509  00135A  6E1F               	movwf	??_main^0,c
+   510  00135C  0E7D               	movlw	125
+   511  00135E                     u637:
+   512  00135E  2EE8               	decfsz	wreg,f,c
+   513  001360  D7FE               	bra	u637
+   514  001362  2E1F               	decfsz	??_main^0,f,c
+   515  001364  D7FC               	bra	u637
+   516  001366  F000               	nop	
+   517  001368  EFA2  F009         	goto	l1398
+   518  00136C  EF00  F000         	goto	start
+   519  001370                     __end_of_main:
+   520                           	callstack 0
+   521                           
+   522 ;; *************** function _welcome_msg *****************
+   523 ;; Defined at:
+   524 ;;		line 10 in file "../Temple_Light_Controller/functions.h"
+   525 ;; Parameters:    Size  Location     Type
+   526 ;;		None
+   527 ;; Auto vars:     Size  Location     Type
+   528 ;;		None
+   529 ;; Return value:  Size  Location     Type
+   530 ;;                  1    wreg      void 
+   531 ;; Registers used:
+   532 ;;		wreg, status,2, status,0, tblptrl, tblptrh, tblptru, cstack
+   533 ;; Tracked objects:
+   534 ;;		On entry : 0/0
+   535 ;;		On exit  : 0/0
+   536 ;;		Unchanged: 0/0
+   537 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+   538 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   539 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   540 ;;      Temps:          2       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   541 ;;      Totals:         2       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   542 ;;Total ram usage:        2 bytes
+   543 ;; Hardware stack levels used: 1
+   544 ;; Hardware stack levels required when called: 3
+   545 ;; This function calls:
+   546 ;;		_lcd_clear
+   547 ;;		_lcd_data
+   548 ;;		_lcd_line
+   549 ;; This function is called by:
+   550 ;;		_main
+   551 ;; This function uses a non-reentrant model
+   552 ;;
+   553                           
+   554                           	psect	text1
+   555  00144A                     __ptext1:
+   556                           	callstack 0
+   557  00144A                     _welcome_msg:
+   558                           	callstack 27
+   559  00144A                     
+   560                           ;../Temple_Light_Controller/functions.h: 12:     lcd_clear();
+   561  00144A  EC14  F00B         	call	_lcd_clear	;wreg free
+   562  00144E                     
+   563                           ;../Temple_Light_Controller/functions.h: 13:     lcd_line(1,3);
+   564  00144E  0E00               	movlw	0
+   565  001450  6E15               	movwf	(lcd_line@a+1)^0,c
+   566  001452  0E01               	movlw	1
+   567  001454  6E14               	movwf	lcd_line@a^0,c
+   568  001456  0E00               	movlw	0
+   569  001458  6E17               	movwf	(lcd_line@b+1)^0,c
+   570  00145A  0E03               	movlw	3
+   571  00145C  6E16               	movwf	lcd_line@b^0,c
+   572  00145E  EC0D  F008         	call	_lcd_line	;wreg free
+   573  001462                     
+   574                           ;../Temple_Light_Controller/functions.h: 14:     lcd_data("Smart light");
+   575  001462  0E01               	movlw	low STR_1
+   576  001464  6E16               	movwf	lcd_data@a^0,c
+   577  001466  0E10               	movlw	high STR_1
+   578  001468  6E17               	movwf	(lcd_data@a+1)^0,c
+   579  00146A  EC82  F00A         	call	_lcd_data	;wreg free
+   580  00146E                     
+   581                           ;../Temple_Light_Controller/functions.h: 15:     lcd_line(2,4);
+   582  00146E  0E00               	movlw	0
+   583  001470  6E15               	movwf	(lcd_line@a+1)^0,c
+   584  001472  0E02               	movlw	2
+   585  001474  6E14               	movwf	lcd_line@a^0,c
+   586  001476  0E00               	movlw	0
+   587  001478  6E17               	movwf	(lcd_line@b+1)^0,c
+   588  00147A  0E04               	movlw	4
+   589  00147C  6E16               	movwf	lcd_line@b^0,c
+   590  00147E  EC0D  F008         	call	_lcd_line	;wreg free
+   591  001482                     
+   592                           ;../Temple_Light_Controller/functions.h: 16:     lcd_data("Controller");
+   593  001482  0E0D               	movlw	low STR_2
+   594  001484  6E16               	movwf	lcd_data@a^0,c
+   595  001486  0E10               	movlw	high STR_2
+   596  001488  6E17               	movwf	(lcd_data@a+1)^0,c
+   597  00148A  EC82  F00A         	call	_lcd_data	;wreg free
+   598  00148E                     
+   599                           ;../Temple_Light_Controller/functions.h: 17:     _delay((unsigned long)((1000)*(20000000
+      +                          /4000.0)));
+   600  00148E  0E1A               	movlw	26
+   601  001490  6E1E               	movwf	(??_welcome_msg+1)^0,c
+   602  001492  0E5E               	movlw	94
+   603  001494  6E1D               	movwf	??_welcome_msg^0,c
+   604  001496  0E6E               	movlw	110
+   605  001498                     u647:
+   606  001498  2EE8               	decfsz	wreg,f,c
+   607  00149A  D7FE               	bra	u647
+   608  00149C  2E1D               	decfsz	??_welcome_msg^0,f,c
+   609  00149E  D7FC               	bra	u647
+   610  0014A0  2E1E               	decfsz	(??_welcome_msg+1)^0,f,c
+   611  0014A2  D7FA               	bra	u647
+   612  0014A4  D000               	nop2	
+   613  0014A6  0012               	return		;funcret
+   614  0014A8                     __end_of_welcome_msg:
+   615                           	callstack 0
+   616                           
+   617 ;; *************** function _lcd_line *****************
+   618 ;; Defined at:
+   619 ;;		line 43 in file "../Temple_Light_Controller/lcd.h"
+   620 ;; Parameters:    Size  Location     Type
+   621 ;;  a               2    3[COMRAM] unsigned int 
+   622 ;;  b               2    5[COMRAM] int 
+   623 ;; Auto vars:     Size  Location     Type
+   624 ;;  temp            2   10[COMRAM] int 
+   625 ;; Return value:  Size  Location     Type
+   626 ;;                  1    wreg      void 
+   627 ;; Registers used:
+   628 ;;		wreg, status,2, status,0, cstack
+   629 ;; Tracked objects:
+   630 ;;		On entry : 0/0
+   631 ;;		On exit  : 0/0
+   632 ;;		Unchanged: 0/0
+   633 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+   634 ;;      Params:         4       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   635 ;;      Locals:         2       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   636 ;;      Temps:          3       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   637 ;;      Totals:         9       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   638 ;;Total ram usage:        9 bytes
+   639 ;; Hardware stack levels used: 1
+   640 ;; Hardware stack levels required when called: 2
+   641 ;; This function calls:
+   642 ;;		_Lcd_Cmd
+   643 ;; This function is called by:
+   644 ;;		_welcome_msg
+   645 ;;		_lcd_print
+   646 ;; This function uses a non-reentrant model
+   647 ;;
+   648                           
+   649                           	psect	text2
+   650  00101A                     __ptext2:
+   651                           	callstack 0
+   652  00101A                     _lcd_line:
+   653                           	callstack 27
+   654  00101A                     
+   655                           ;../Temple_Light_Controller/lcd.h: 43: void lcd_line(unsigned int a, signed int b);../Te
+      +                          mple_Light_Controller/lcd.h: 44: {;../Temple_Light_Controller/lcd.h: 45:  int temp;;../T
+      +                          emple_Light_Controller/lcd.h: 46:  if(a == 1)
+   656  00101A  0414               	decf	lcd_line@a^0,w,c
+   657  00101C  1015               	iorwf	(lcd_line@a+1)^0,w,c
+   658  00101E  A4D8               	btfss	status,2,c
+   659  001020  EF14  F008         	goto	u341
+   660  001024  EF16  F008         	goto	u340
+   661  001028                     u341:
+   662  001028  EF35  F008         	goto	l1210
+   663  00102C                     u340:
+   664  00102C                     
+   665                           ;../Temple_Light_Controller/lcd.h: 47:  {;../Temple_Light_Controller/lcd.h: 48:    temp 
+      +                          = 0x80 + b - 1;
+   666  00102C  0E7F               	movlw	127
+   667  00102E  2416               	addwf	lcd_line@b^0,w,c
+   668  001030  6E1B               	movwf	lcd_line@temp^0,c
+   669  001032  0E00               	movlw	0
+   670  001034  2017               	addwfc	(lcd_line@b+1)^0,w,c
+   671  001036  6E1C               	movwf	(lcd_line@temp+1)^0,c
+   672                           
+   673                           ;../Temple_Light_Controller/lcd.h: 49:   z = temp>>4;
+   674  001038  C01B  F018         	movff	lcd_line@temp,??_lcd_line
+   675  00103C  C01C  F019         	movff	lcd_line@temp+1,??_lcd_line+1
+   676  001040  0E04               	movlw	4
+   677  001042  6E1A               	movwf	(??_lcd_line+2)^0,c
+   678  001044                     u355:
+   679  001044  3419               	rlcf	(??_lcd_line+1)^0,w,c
+   680  001046  3219               	rrcf	(??_lcd_line+1)^0,f,c
+   681  001048  3218               	rrcf	??_lcd_line^0,f,c
+   682  00104A  2E1A               	decfsz	(??_lcd_line+2)^0,f,c
+   683  00104C  EF22  F008         	goto	u355
+   684  001050  5018               	movf	??_lcd_line^0,w,c
+   685  001052  6E0B               	movwf	_z^0,c
+   686                           
+   687                           ;../Temple_Light_Controller/lcd.h: 50:   y = temp & 0x0F;
+   688  001054  501B               	movf	lcd_line@temp^0,w,c
+   689  001056  0B0F               	andlw	15
+   690  001058  6E0C               	movwf	_y^0,c
+   691  00105A                     
+   692                           ;../Temple_Light_Controller/lcd.h: 51:   Lcd_Cmd(z);
+   693  00105A  500B               	movf	_z^0,w,c
+   694  00105C  ECE5  F00A         	call	_Lcd_Cmd
+   695  001060                     
+   696                           ;../Temple_Light_Controller/lcd.h: 52:   Lcd_Cmd(y);
+   697  001060  500C               	movf	_y^0,w,c
+   698  001062  ECE5  F00A         	call	_Lcd_Cmd
+   699                           
+   700                           ;../Temple_Light_Controller/lcd.h: 53:  }
+   701  001066  EFB0  F008         	goto	l101
+   702  00106A                     l1210:
+   703  00106A  0E02               	movlw	2
+   704  00106C  1814               	xorwf	lcd_line@a^0,w,c
+   705  00106E  1015               	iorwf	(lcd_line@a+1)^0,w,c
+   706  001070  A4D8               	btfss	status,2,c
+   707  001072  EF3D  F008         	goto	u361
+   708  001076  EF3F  F008         	goto	u360
+   709  00107A                     u361:
+   710  00107A  EF5E  F008         	goto	l1218
+   711  00107E                     u360:
+   712  00107E                     
+   713                           ;../Temple_Light_Controller/lcd.h: 55:  {;../Temple_Light_Controller/lcd.h: 56:   temp =
+      +                           0xC0 + b - 1;
+   714  00107E  0EBF               	movlw	191
+   715  001080  2416               	addwf	lcd_line@b^0,w,c
+   716  001082  6E1B               	movwf	lcd_line@temp^0,c
+   717  001084  0E00               	movlw	0
+   718  001086  2017               	addwfc	(lcd_line@b+1)^0,w,c
+   719  001088  6E1C               	movwf	(lcd_line@temp+1)^0,c
+   720                           
+   721                           ;../Temple_Light_Controller/lcd.h: 57:   z = temp>>4;
+   722  00108A  C01B  F018         	movff	lcd_line@temp,??_lcd_line
+   723  00108E  C01C  F019         	movff	lcd_line@temp+1,??_lcd_line+1
+   724  001092  0E04               	movlw	4
+   725  001094  6E1A               	movwf	(??_lcd_line+2)^0,c
+   726  001096                     u375:
+   727  001096  3419               	rlcf	(??_lcd_line+1)^0,w,c
+   728  001098  3219               	rrcf	(??_lcd_line+1)^0,f,c
+   729  00109A  3218               	rrcf	??_lcd_line^0,f,c
+   730  00109C  2E1A               	decfsz	(??_lcd_line+2)^0,f,c
+   731  00109E  EF4B  F008         	goto	u375
+   732  0010A2  5018               	movf	??_lcd_line^0,w,c
+   733  0010A4  6E0B               	movwf	_z^0,c
+   734                           
+   735                           ;../Temple_Light_Controller/lcd.h: 58:   y = temp & 0x0F;
+   736  0010A6  501B               	movf	lcd_line@temp^0,w,c
+   737  0010A8  0B0F               	andlw	15
+   738  0010AA  6E0C               	movwf	_y^0,c
+   739  0010AC                     
+   740                           ;../Temple_Light_Controller/lcd.h: 59:   Lcd_Cmd(z);
+   741  0010AC  500B               	movf	_z^0,w,c
+   742  0010AE  ECE5  F00A         	call	_Lcd_Cmd
+   743  0010B2                     
+   744                           ;../Temple_Light_Controller/lcd.h: 60:   Lcd_Cmd(y);
+   745  0010B2  500C               	movf	_y^0,w,c
+   746  0010B4  ECE5  F00A         	call	_Lcd_Cmd
+   747                           
+   748                           ;../Temple_Light_Controller/lcd.h: 61:  }
+   749  0010B8  EFB0  F008         	goto	l101
+   750  0010BC                     l1218:
+   751  0010BC  0E03               	movlw	3
+   752  0010BE  1814               	xorwf	lcd_line@a^0,w,c
+   753  0010C0  1015               	iorwf	(lcd_line@a+1)^0,w,c
+   754  0010C2  A4D8               	btfss	status,2,c
+   755  0010C4  EF66  F008         	goto	u381
+   756  0010C8  EF68  F008         	goto	u380
+   757  0010CC                     u381:
+   758  0010CC  EF87  F008         	goto	l1226
+   759  0010D0                     u380:
+   760  0010D0                     
+   761                           ;../Temple_Light_Controller/lcd.h: 63:  {;../Temple_Light_Controller/lcd.h: 64:   temp =
+      +                           0x94 + b - 1;
+   762  0010D0  0E93               	movlw	147
+   763  0010D2  2416               	addwf	lcd_line@b^0,w,c
+   764  0010D4  6E1B               	movwf	lcd_line@temp^0,c
+   765  0010D6  0E00               	movlw	0
+   766  0010D8  2017               	addwfc	(lcd_line@b+1)^0,w,c
+   767  0010DA  6E1C               	movwf	(lcd_line@temp+1)^0,c
+   768                           
+   769                           ;../Temple_Light_Controller/lcd.h: 65:   z = temp>>4;
+   770  0010DC  C01B  F018         	movff	lcd_line@temp,??_lcd_line
+   771  0010E0  C01C  F019         	movff	lcd_line@temp+1,??_lcd_line+1
+   772  0010E4  0E04               	movlw	4
+   773  0010E6  6E1A               	movwf	(??_lcd_line+2)^0,c
+   774  0010E8                     u395:
+   775  0010E8  3419               	rlcf	(??_lcd_line+1)^0,w,c
+   776  0010EA  3219               	rrcf	(??_lcd_line+1)^0,f,c
+   777  0010EC  3218               	rrcf	??_lcd_line^0,f,c
+   778  0010EE  2E1A               	decfsz	(??_lcd_line+2)^0,f,c
+   779  0010F0  EF74  F008         	goto	u395
+   780  0010F4  5018               	movf	??_lcd_line^0,w,c
+   781  0010F6  6E0B               	movwf	_z^0,c
+   782                           
+   783                           ;../Temple_Light_Controller/lcd.h: 66:   y = temp & 0x0F;
+   784  0010F8  501B               	movf	lcd_line@temp^0,w,c
+   785  0010FA  0B0F               	andlw	15
+   786  0010FC  6E0C               	movwf	_y^0,c
+   787  0010FE                     
+   788                           ;../Temple_Light_Controller/lcd.h: 67:   Lcd_Cmd(z);
+   789  0010FE  500B               	movf	_z^0,w,c
+   790  001100  ECE5  F00A         	call	_Lcd_Cmd
+   791  001104                     
+   792                           ;../Temple_Light_Controller/lcd.h: 68:   Lcd_Cmd(y);
+   793  001104  500C               	movf	_y^0,w,c
+   794  001106  ECE5  F00A         	call	_Lcd_Cmd
+   795                           
+   796                           ;../Temple_Light_Controller/lcd.h: 69:  }
+   797  00110A  EFB0  F008         	goto	l101
+   798  00110E                     l1226:
+   799  00110E  0E04               	movlw	4
+   800  001110  1814               	xorwf	lcd_line@a^0,w,c
+   801  001112  1015               	iorwf	(lcd_line@a+1)^0,w,c
+   802  001114  A4D8               	btfss	status,2,c
+   803  001116  EF8F  F008         	goto	u401
+   804  00111A  EF91  F008         	goto	u400
+   805  00111E                     u401:
+   806  00111E  EFB0  F008         	goto	l97
+   807  001122                     u400:
+   808  001122                     
+   809                           ;../Temple_Light_Controller/lcd.h: 71:  {;../Temple_Light_Controller/lcd.h: 72:   temp =
+      +                           0xd4 + b - 1;
+   810  001122  0ED3               	movlw	211
+   811  001124  2416               	addwf	lcd_line@b^0,w,c
+   812  001126  6E1B               	movwf	lcd_line@temp^0,c
+   813  001128  0E00               	movlw	0
+   814  00112A  2017               	addwfc	(lcd_line@b+1)^0,w,c
+   815  00112C  6E1C               	movwf	(lcd_line@temp+1)^0,c
+   816                           
+   817                           ;../Temple_Light_Controller/lcd.h: 73:   z = temp>>4;
+   818  00112E  C01B  F018         	movff	lcd_line@temp,??_lcd_line
+   819  001132  C01C  F019         	movff	lcd_line@temp+1,??_lcd_line+1
+   820  001136  0E04               	movlw	4
+   821  001138  6E1A               	movwf	(??_lcd_line+2)^0,c
+   822  00113A                     u415:
+   823  00113A  3419               	rlcf	(??_lcd_line+1)^0,w,c
+   824  00113C  3219               	rrcf	(??_lcd_line+1)^0,f,c
+   825  00113E  3218               	rrcf	??_lcd_line^0,f,c
+   826  001140  2E1A               	decfsz	(??_lcd_line+2)^0,f,c
+   827  001142  EF9D  F008         	goto	u415
+   828  001146  5018               	movf	??_lcd_line^0,w,c
+   829  001148  6E0B               	movwf	_z^0,c
+   830                           
+   831                           ;../Temple_Light_Controller/lcd.h: 74:   y = temp & 0x0F;
+   832  00114A  501B               	movf	lcd_line@temp^0,w,c
+   833  00114C  0B0F               	andlw	15
+   834  00114E  6E0C               	movwf	_y^0,c
+   835  001150                     
+   836                           ;../Temple_Light_Controller/lcd.h: 75:   Lcd_Cmd(z);
+   837  001150  500B               	movf	_z^0,w,c
+   838  001152  ECE5  F00A         	call	_Lcd_Cmd
+   839  001156                     
+   840                           ;../Temple_Light_Controller/lcd.h: 76:   Lcd_Cmd(y);
+   841  001156  500C               	movf	_y^0,w,c
+   842  001158  ECE5  F00A         	call	_Lcd_Cmd
+   843  00115C  EFB0  F008         	goto	l101
+   844  001160                     l97:
+   845  001160                     l101:
+   846  001160  0012               	return		;funcret
+   847  001162                     __end_of_lcd_line:
+   848                           	callstack 0
+   849                           
+   850 ;; *************** function _lcd_data *****************
+   851 ;; Defined at:
+   852 ;;		line 111 in file "../Temple_Light_Controller/lcd.h"
+   853 ;; Parameters:    Size  Location     Type
+   854 ;;  a               2    5[COMRAM] PTR const unsigned char 
+   855 ;;		 -> STR_2(11), STR_1(12), 
+   856 ;; Auto vars:     Size  Location     Type
+   857 ;;		None
+   858 ;; Return value:  Size  Location     Type
+   859 ;;                  1    wreg      void 
+   860 ;; Registers used:
+   861 ;;		wreg, status,2, status,0, tblptrl, tblptrh, tblptru, cstack
+   862 ;; Tracked objects:
+   863 ;;		On entry : 0/0
+   864 ;;		On exit  : 0/0
+   865 ;;		Unchanged: 0/0
+   866 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+   867 ;;      Params:         2       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   868 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   869 ;;      Temps:          2       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   870 ;;      Totals:         4       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   871 ;;Total ram usage:        4 bytes
+   872 ;; Hardware stack levels used: 1
+   873 ;; Hardware stack levels required when called: 2
+   874 ;; This function calls:
+   875 ;;		_lcd_char
+   876 ;; This function is called by:
+   877 ;;		_welcome_msg
+   878 ;; This function uses a non-reentrant model
+   879 ;;
+   880                           
+   881                           	psect	text3
+   882  001504                     __ptext3:
+   883                           	callstack 0
+   884  001504                     _lcd_data:
+   885                           	callstack 27
+   886  001504                     
+   887                           ;../Temple_Light_Controller/lcd.h: 111: void lcd_data(const char *a);../Temple_Light_Con
+      +                          troller/lcd.h: 112: {;../Temple_Light_Controller/lcd.h: 113:   for(i=0;a[i]!='\0';i++)
+   888  001504  0E00               	movlw	0
+   889  001506  6E0A               	movwf	_i^0,c
+   890  001508  EF97  F00A         	goto	l1240
+   891  00150C                     l1236:
+   892                           
+   893                           ;../Temple_Light_Controller/lcd.h: 114:     lcd_char(a[i]);
+   894  00150C  500A               	movf	_i^0,w,c
+   895  00150E  2416               	addwf	lcd_data@a^0,w,c
+   896  001510  6E18               	movwf	??_lcd_data^0,c
+   897  001512  0E00               	movlw	0
+   898  001514  2017               	addwfc	(lcd_data@a+1)^0,w,c
+   899  001516  6E19               	movwf	(??_lcd_data+1)^0,c
+   900  001518  C018  FFF6         	movff	??_lcd_data,tblptrl
+   901  00151C  C019  FFF7         	movff	??_lcd_data+1,tblptrh
+   902  001520                     	if	0	;tblptru may be non-zero
+   903  001520                     	endif
+   904  001520                     	if	0	;tblptru may be non-zero
+   905  001520                     	endif
+   906  001520  0008               	tblrd		*
+   907  001522  50F5               	movf	tablat,w,c
+   908  001524  6E12               	movwf	lcd_char@a^0,c
+   909  001526  6A13               	clrf	(lcd_char@a+1)^0,c
+   910  001528  ECC9  F00A         	call	_lcd_char	;wreg free
+   911  00152C  2A0A               	incf	_i^0,f,c
+   912  00152E                     l1240:
+   913  00152E  500A               	movf	_i^0,w,c
+   914  001530  2416               	addwf	lcd_data@a^0,w,c
+   915  001532  6E18               	movwf	??_lcd_data^0,c
+   916  001534  0E00               	movlw	0
+   917  001536  2017               	addwfc	(lcd_data@a+1)^0,w,c
+   918  001538  6E19               	movwf	(??_lcd_data+1)^0,c
+   919  00153A  C018  FFF6         	movff	??_lcd_data,tblptrl
+   920  00153E  C019  FFF7         	movff	??_lcd_data+1,tblptrh
+   921  001542                     	if	0	;tblptru may be non-zero
+   922  001542                     	endif
+   923  001542                     	if	0	;tblptru may be non-zero
+   924  001542                     	endif
+   925  001542  0008               	tblrd		*
+   926  001544  50F5               	movf	tablat,w,c
+   927  001546  0900               	iorlw	0
+   928  001548  A4D8               	btfss	status,2,c
+   929  00154A  EFA9  F00A         	goto	u421
+   930  00154E  EFAB  F00A         	goto	u420
+   931  001552                     u421:
+   932  001552  EF86  F00A         	goto	l1236
+   933  001556                     u420:
+   934  001556  0012               	return		;funcret
+   935  001558                     __end_of_lcd_data:
+   936                           	callstack 0
+   937                           
+   938 ;; *************** function _lcd_char *****************
+   939 ;; Defined at:
+   940 ;;		line 96 in file "../Temple_Light_Controller/lcd.h"
+   941 ;; Parameters:    Size  Location     Type
+   942 ;;  a               2    1[COMRAM] unsigned int 
+   943 ;; Auto vars:     Size  Location     Type
+   944 ;;  temp            2    3[COMRAM] unsigned int 
+   945 ;; Return value:  Size  Location     Type
+   946 ;;                  1    wreg      void 
+   947 ;; Registers used:
+   948 ;;		wreg, status,2, status,0, cstack
+   949 ;; Tracked objects:
+   950 ;;		On entry : 0/0
+   951 ;;		On exit  : 0/0
+   952 ;;		Unchanged: 0/0
+   953 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+   954 ;;      Params:         2       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   955 ;;      Locals:         2       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   956 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   957 ;;      Totals:         4       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   958 ;;Total ram usage:        4 bytes
+   959 ;; Hardware stack levels used: 1
+   960 ;; Hardware stack levels required when called: 1
+   961 ;; This function calls:
+   962 ;;		_Lcd_Port
+   963 ;; This function is called by:
+   964 ;;		_lcd_data
+   965 ;;		_lcd_print
+   966 ;; This function uses a non-reentrant model
+   967 ;;
+   968                           
+   969                           	psect	text4
+   970  001592                     __ptext4:
+   971                           	callstack 0
+   972  001592                     _lcd_char:
+   973                           	callstack 27
+   974  001592                     
+   975                           ;../Temple_Light_Controller/lcd.h: 96: void lcd_char(unsigned int a);../Temple_Light_Con
+      +                          troller/lcd.h: 97: {;../Temple_Light_Controller/lcd.h: 98:    unsigned int temp;;../Temp
+      +                          le_Light_Controller/lcd.h: 99:    temp = a&0x0F;
+   976  001592  0E0F               	movlw	15
+   977  001594  1412               	andwf	lcd_char@a^0,w,c
+   978  001596  6E14               	movwf	lcd_char@temp^0,c
+   979  001598  6A15               	clrf	(lcd_char@temp+1)^0,c
+   980                           
+   981                           ;../Temple_Light_Controller/lcd.h: 100:    y = a&0xF0;
+   982  00159A  5012               	movf	lcd_char@a^0,w,c
+   983  00159C  0BF0               	andlw	240
+   984  00159E  6E0C               	movwf	_y^0,c
+   985  0015A0                     
+   986                           ;../Temple_Light_Controller/lcd.h: 101:    PORTBbits.RB2 = 1;
+   987  0015A0  8481               	bsf	129,2,c	;volatile
+   988  0015A2                     
+   989                           ;../Temple_Light_Controller/lcd.h: 102:    Lcd_Port(y>>4);
+   990  0015A2  380C               	swapf	_y^0,w,c
+   991  0015A4  0B0F               	andlw	15
+   992  0015A6  EC54  F00A         	call	_Lcd_Port
+   993  0015AA                     
+   994                           ;../Temple_Light_Controller/lcd.h: 103:    PORTBbits.RB3 = 1;
+   995  0015AA  8681               	bsf	129,3,c	;volatile
+   996  0015AC                     
+   997                           ;../Temple_Light_Controller/lcd.h: 104:    _delay((unsigned long)((40)*(20000000/4000000
+      +                          .0)));
+   998  0015AC  0E42               	movlw	66
+   999  0015AE                     u657:
+  1000  0015AE  2EE8               	decfsz	wreg,f,c
+  1001  0015B0  D7FE               	bra	u657
+  1002  0015B2  D000               	nop2	
+  1003  0015B4                     
+  1004                           ;../Temple_Light_Controller/lcd.h: 105:    PORTBbits.RB3 = 0;
+  1005  0015B4  9681               	bcf	129,3,c	;volatile
+  1006  0015B6                     
+  1007                           ;../Temple_Light_Controller/lcd.h: 106:    Lcd_Port(temp);
+  1008  0015B6  5014               	movf	lcd_char@temp^0,w,c
+  1009  0015B8  EC54  F00A         	call	_Lcd_Port
+  1010  0015BC                     
+  1011                           ;../Temple_Light_Controller/lcd.h: 107:    PORTBbits.RB3 = 1;
+  1012  0015BC  8681               	bsf	129,3,c	;volatile
+  1013  0015BE                     
+  1014                           ;../Temple_Light_Controller/lcd.h: 108:    _delay((unsigned long)((40)*(20000000/4000000
+      +                          .0)));
+  1015  0015BE  0E42               	movlw	66
+  1016  0015C0                     u667:
+  1017  0015C0  2EE8               	decfsz	wreg,f,c
+  1018  0015C2  D7FE               	bra	u667
+  1019  0015C4  D000               	nop2	
+  1020  0015C6                     
+  1021                           ;../Temple_Light_Controller/lcd.h: 109:    PORTBbits.RB3 = 0;
+  1022  0015C6  9681               	bcf	129,3,c	;volatile
+  1023  0015C8  0012               	return		;funcret
+  1024  0015CA                     __end_of_lcd_char:
+  1025                           	callstack 0
+  1026                           
+  1027 ;; *************** function _lcd_clear *****************
+  1028 ;; Defined at:
+  1029 ;;		line 38 in file "../Temple_Light_Controller/lcd.h"
+  1030 ;; Parameters:    Size  Location     Type
+  1031 ;;		None
+  1032 ;; Auto vars:     Size  Location     Type
+  1033 ;;		None
+  1034 ;; Return value:  Size  Location     Type
+  1035 ;;                  1    wreg      void 
+  1036 ;; Registers used:
+  1037 ;;		wreg, status,2, cstack
+  1038 ;; Tracked objects:
+  1039 ;;		On entry : 0/0
+  1040 ;;		On exit  : 0/0
+  1041 ;;		Unchanged: 0/0
+  1042 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+  1043 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1044 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1045 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1046 ;;      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1047 ;;Total ram usage:        0 bytes
+  1048 ;; Hardware stack levels used: 1
+  1049 ;; Hardware stack levels required when called: 2
+  1050 ;; This function calls:
+  1051 ;;		_Lcd_Cmd
+  1052 ;; This function is called by:
+  1053 ;;		_welcome_msg
+  1054 ;;		_main
+  1055 ;; This function uses a non-reentrant model
+  1056 ;;
+  1057                           
+  1058                           	psect	text5
+  1059  001628                     __ptext5:
+  1060                           	callstack 0
+  1061  001628                     _lcd_clear:
+  1062                           	callstack 27
+  1063  001628                     
+  1064                           ;../Temple_Light_Controller/lcd.h: 40:  Lcd_Cmd(0);
+  1065  001628  0E00               	movlw	0
+  1066  00162A  ECE5  F00A         	call	_Lcd_Cmd
+  1067                           
+  1068                           ;../Temple_Light_Controller/lcd.h: 41:  Lcd_Cmd(1);
+  1069  00162E  0E01               	movlw	1
+  1070  001630  ECE5  F00A         	call	_Lcd_Cmd
+  1071  001634  0012               	return		;funcret
+  1072  001636                     __end_of_lcd_clear:
+  1073                           	callstack 0
+  1074                           
+  1075 ;; *************** function _status_check *****************
+  1076 ;; Defined at:
+  1077 ;;		line 46 in file "../Temple_Light_Controller/functions.h"
+  1078 ;; Parameters:    Size  Location     Type
+  1079 ;;		None
+  1080 ;; Auto vars:     Size  Location     Type
+  1081 ;;  no              1    5[COMRAM] unsigned char 
+  1082 ;; Return value:  Size  Location     Type
+  1083 ;;                  1    wreg      void 
+  1084 ;; Registers used:
+  1085 ;;		wreg, status,2, status,0, cstack
+  1086 ;; Tracked objects:
+  1087 ;;		On entry : 0/0
+  1088 ;;		On exit  : 0/0
+  1089 ;;		Unchanged: 0/0
+  1090 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+  1091 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1092 ;;      Locals:         1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1093 ;;      Temps:          2       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1094 ;;      Totals:         3       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1095 ;;Total ram usage:        3 bytes
+  1096 ;; Hardware stack levels used: 1
+  1097 ;; Hardware stack levels required when called: 1
+  1098 ;; This function calls:
+  1099 ;;		_memory_read
+  1100 ;;		_memory_write
+  1101 ;; This function is called by:
+  1102 ;;		_main
+  1103 ;; This function uses a non-reentrant model
+  1104 ;;
+  1105                           
+  1106                           	psect	text6
+  1107  001162                     __ptext6:
+  1108                           	callstack 0
+  1109  001162                     _status_check:
+  1110                           	callstack 29
+  1111  001162                     
+  1112                           ;../Temple_Light_Controller/functions.h: 48:     char no=0;
+  1113  001162  0E00               	movlw	0
+  1114  001164  6E16               	movwf	status_check@no^0,c
+  1115  001166                     
+  1116                           ;../Temple_Light_Controller/functions.h: 50:     _delay((unsigned long)((10)*(20000000/4
+      +                          000.0)));
+  1117  001166  0E41               	movlw	65
+  1118  001168  6E14               	movwf	??_status_check^0,c
+  1119  00116A  0EEE               	movlw	238
+  1120  00116C                     u677:
+  1121  00116C  2EE8               	decfsz	wreg,f,c
+  1122  00116E  D7FE               	bra	u677
+  1123  001170  2E14               	decfsz	??_status_check^0,f,c
+  1124  001172  D7FC               	bra	u677
+  1125  001174  D000               	nop2	
+  1126  001176                     
+  1127                           ;../Temple_Light_Controller/functions.h: 52:     backlight=memory_read(0x00);
+  1128  001176  0E00               	movlw	0
+  1129  001178  ECFD  F00A         	call	_memory_read
+  1130  00117C  6E2E               	movwf	_backlight^0,c
+  1131  00117E                     l1300:
+  1132                           
+  1133                           ;../Temple_Light_Controller/functions.h: 53:     _delay((unsigned long)((10)*(20000000/4
+      +                          000.0)));
+  1134  00117E  0E41               	movlw	65
+  1135  001180  6E14               	movwf	??_status_check^0,c
+  1136  001182  0EEE               	movlw	238
+  1137  001184                     u687:
+  1138  001184  2EE8               	decfsz	wreg,f,c
+  1139  001186  D7FE               	bra	u687
+  1140  001188  2E14               	decfsz	??_status_check^0,f,c
+  1141  00118A  D7FC               	bra	u687
+  1142  00118C  D000               	nop2	
+  1143                           
+  1144                           ;../Temple_Light_Controller/functions.h: 57:     while(PORTCbits.RC0==0&&no<3)
+  1145  00118E  EFD8  F008         	goto	l1308
+  1146  001192                     l1302:
+  1147                           
+  1148                           ;../Temple_Light_Controller/functions.h: 58:     {;../Temple_Light_Controller/functions.
+      +                          h: 59:         _delay((unsigned long)((500)*(20000000/4000.0)));
+  1149  001192  0E0D               	movlw	13
+  1150  001194  6E15               	movwf	(??_status_check+1)^0,c
+  1151  001196  0EAF               	movlw	175
+  1152  001198  6E14               	movwf	??_status_check^0,c
+  1153  00119A  0EB6               	movlw	182
+  1154  00119C                     u697:
+  1155  00119C  2EE8               	decfsz	wreg,f,c
+  1156  00119E  D7FE               	bra	u697
+  1157  0011A0  2E14               	decfsz	??_status_check^0,f,c
+  1158  0011A2  D7FC               	bra	u697
+  1159  0011A4  2E15               	decfsz	(??_status_check+1)^0,f,c
+  1160  0011A6  D7FA               	bra	u697
+  1161  0011A8  D000               	nop2	
+  1162  0011AA                     
+  1163                           ;../Temple_Light_Controller/functions.h: 60:         no++;
+  1164  0011AA  2A16               	incf	status_check@no^0,f,c
+  1165  0011AC  EFBF  F008         	goto	l1300
+  1166  0011B0                     l1308:
+  1167                           
+  1168                           ;../Temple_Light_Controller/functions.h: 57:     while(PORTCbits.RC0==0&&no<3)
+  1169  0011B0  B082               	btfsc	130,0,c	;volatile
+  1170  0011B2  EFDD  F008         	goto	u451
+  1171  0011B6  EFDF  F008         	goto	u450
+  1172  0011BA                     u451:
+  1173  0011BA  EFE7  F008         	goto	l1312
+  1174  0011BE                     u450:
+  1175  0011BE  0E02               	movlw	2
+  1176  0011C0  6416               	cpfsgt	status_check@no^0,c
+  1177  0011C2  EFE5  F008         	goto	u461
+  1178  0011C6  EFE7  F008         	goto	u460
+  1179  0011CA                     u461:
+  1180  0011CA  EFC9  F008         	goto	l1302
+  1181  0011CE                     u460:
+  1182  0011CE                     l1312:
+  1183                           
+  1184                           ;../Temple_Light_Controller/functions.h: 63:     if(no==3)
+  1185  0011CE  0E03               	movlw	3
+  1186  0011D0  1816               	xorwf	status_check@no^0,w,c
+  1187  0011D2  A4D8               	btfss	status,2,c
+  1188  0011D4  EFEE  F008         	goto	u471
+  1189  0011D8  EFF0  F008         	goto	u470
+  1190  0011DC                     u471:
+  1191  0011DC  EF18  F009         	goto	l1324
+  1192  0011E0                     u470:
+  1193  0011E0                     
+  1194                           ;../Temple_Light_Controller/functions.h: 64:     {;../Temple_Light_Controller/functions.
+      +                          h: 65:         backlight=!(backlight);
+  1195  0011E0  502E               	movf	_backlight^0,w,c
+  1196  0011E2  B4D8               	btfsc	status,2,c
+  1197  0011E4  EFF6  F008         	goto	u481
+  1198  0011E8  EFF9  F008         	goto	u480
+  1199  0011EC                     u481:
+  1200  0011EC  0E01               	movlw	1
+  1201  0011EE  EFFA  F008         	goto	u490
+  1202  0011F2                     u480:
+  1203  0011F2  0E00               	movlw	0
+  1204  0011F4                     u490:
+  1205  0011F4  6E2E               	movwf	_backlight^0,c
+  1206  0011F6                     
+  1207                           ;../Temple_Light_Controller/functions.h: 66:         _delay((unsigned long)((10)*(200000
+      +                          00/4000.0)));
+  1208  0011F6  0E41               	movlw	65
+  1209  0011F8  6E14               	movwf	??_status_check^0,c
+  1210  0011FA  0EEE               	movlw	238
+  1211  0011FC                     u707:
+  1212  0011FC  2EE8               	decfsz	wreg,f,c
+  1213  0011FE  D7FE               	bra	u707
+  1214  001200  2E14               	decfsz	??_status_check^0,f,c
+  1215  001202  D7FC               	bra	u707
+  1216  001204  D000               	nop2	
+  1217  001206                     
+  1218                           ;../Temple_Light_Controller/functions.h: 68:         _delay((unsigned long)((10)*(200000
+      +                          00/4000.0)));
+  1219  001206  0E41               	movlw	65
+  1220  001208  6E14               	movwf	??_status_check^0,c
+  1221  00120A  0EEE               	movlw	238
+  1222  00120C                     u717:
+  1223  00120C  2EE8               	decfsz	wreg,f,c
+  1224  00120E  D7FE               	bra	u717
+  1225  001210  2E14               	decfsz	??_status_check^0,f,c
+  1226  001212  D7FC               	bra	u717
+  1227  001214  D000               	nop2	
+  1228  001216                     
+  1229                           ;../Temple_Light_Controller/functions.h: 69:         memory_write(0x00,backlight);
+  1230  001216  C02E  F011         	movff	_backlight,memory_write@data
+  1231  00121A  0E00               	movlw	0
+  1232  00121C  ECF1  F009         	call	_memory_write
+  1233  001220                     
+  1234                           ;../Temple_Light_Controller/functions.h: 70:         _delay((unsigned long)((10)*(200000
+      +                          00/4000.0)));
+  1235  001220  0E41               	movlw	65
+  1236  001222  6E14               	movwf	??_status_check^0,c
+  1237  001224  0EEE               	movlw	238
+  1238  001226                     u727:
+  1239  001226  2EE8               	decfsz	wreg,f,c
+  1240  001228  D7FE               	bra	u727
+  1241  00122A  2E14               	decfsz	??_status_check^0,f,c
+  1242  00122C  D7FC               	bra	u727
+  1243  00122E  D000               	nop2	
+  1244  001230                     l1324:
+  1245                           
+  1246                           ;../Temple_Light_Controller/functions.h: 73:     _delay((unsigned long)((10)*(20000000/4
+      +                          000.0)));
+  1247  001230  0E41               	movlw	65
+  1248  001232  6E14               	movwf	??_status_check^0,c
+  1249  001234  0EEE               	movlw	238
+  1250  001236                     u737:
+  1251  001236  2EE8               	decfsz	wreg,f,c
+  1252  001238  D7FE               	bra	u737
+  1253  00123A  2E14               	decfsz	??_status_check^0,f,c
+  1254  00123C  D7FC               	bra	u737
+  1255  00123E  D000               	nop2	
+  1256  001240                     
+  1257                           ;../Temple_Light_Controller/functions.h: 74:     PORTBbits.RB1=backlight;
+  1258  001240  B02E               	btfsc	_backlight^0,0,c
+  1259  001242  D002               	bra	u505
+  1260  001244  9281               	bcf	129,1,c	;volatile
+  1261  001246  D001               	bra	u506
+  1262  001248                     u505:
+  1263  001248  8281               	bsf	129,1,c	;volatile
+  1264  00124A                     u506:
+  1265  00124A                     
+  1266                           ;../Temple_Light_Controller/functions.h: 75:     _delay((unsigned long)((10)*(20000000/4
+      +                          000.0)));
+  1267  00124A  0E41               	movlw	65
+  1268  00124C  6E14               	movwf	??_status_check^0,c
+  1269  00124E  0EEE               	movlw	238
+  1270  001250                     u747:
+  1271  001250  2EE8               	decfsz	wreg,f,c
+  1272  001252  D7FE               	bra	u747
+  1273  001254  2E14               	decfsz	??_status_check^0,f,c
+  1274  001256  D7FC               	bra	u747
+  1275  001258  D000               	nop2	
+  1276  00125A                     
+  1277                           ;../Temple_Light_Controller/functions.h: 77:     _delay((unsigned long)((1)*(20000000/40
+      +                          00.0)));
+  1278  00125A  0E07               	movlw	7
+  1279  00125C  6E14               	movwf	??_status_check^0,c
+  1280  00125E  0E7D               	movlw	125
+  1281  001260                     u757:
+  1282  001260  2EE8               	decfsz	wreg,f,c
+  1283  001262  D7FE               	bra	u757
+  1284  001264  2E14               	decfsz	??_status_check^0,f,c
+  1285  001266  D7FC               	bra	u757
+  1286  001268  F000               	nop	
+  1287  00126A                     
+  1288                           ;../Temple_Light_Controller/functions.h: 78:     PORTDbits.RD2=relay;
+  1289  00126A  9483               	bcf	131,2,c	;volatile
+  1290  00126C                     
+  1291                           ;../Temple_Light_Controller/functions.h: 79:     _delay((unsigned long)((1)*(20000000/40
+      +                          00.0)));
+  1292  00126C  0E07               	movlw	7
+  1293  00126E  6E14               	movwf	??_status_check^0,c
+  1294  001270  0E7D               	movlw	125
+  1295  001272                     u767:
+  1296  001272  2EE8               	decfsz	wreg,f,c
+  1297  001274  D7FE               	bra	u767
+  1298  001276  2E14               	decfsz	??_status_check^0,f,c
+  1299  001278  D7FC               	bra	u767
+  1300  00127A  F000               	nop	
+  1301  00127C  0012               	return		;funcret
+  1302  00127E                     __end_of_status_check:
+  1303                           	callstack 0
+  1304                           
+  1305 ;; *************** function _memory_write *****************
+  1306 ;; Defined at:
+  1307 ;;		line 18 in file "../Temple_Light_Controller/eeprom.h"
+  1308 ;; Parameters:    Size  Location     Type
+  1309 ;;  address         1    wreg     unsigned char 
+  1310 ;;  data            1    0[COMRAM] unsigned char 
+  1311 ;; Auto vars:     Size  Location     Type
+  1312 ;;  address         1    2[COMRAM] unsigned char 
+  1313 ;; Return value:  Size  Location     Type
+  1314 ;;                  1    wreg      void 
+  1315 ;; Registers used:
+  1316 ;;		wreg, status,2, cstack
+  1317 ;; Tracked objects:
+  1318 ;;		On entry : 0/0
+  1319 ;;		On exit  : 0/0
+  1320 ;;		Unchanged: 0/0
+  1321 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+  1322 ;;      Params:         1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1323 ;;      Locals:         1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1324 ;;      Temps:          1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1325 ;;      Totals:         3       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1326 ;;Total ram usage:        3 bytes
+  1327 ;; Hardware stack levels used: 1
+  1328 ;; This function calls:
+  1329 ;;		Nothing
+  1330 ;; This function is called by:
+  1331 ;;		_status_check
+  1332 ;; This function uses a non-reentrant model
+  1333 ;;
+  1334                           
+  1335                           	psect	text7
+  1336  0013E2                     __ptext7:
+  1337                           	callstack 0
+  1338  0013E2                     _memory_write:
+  1339                           	callstack 29
+  1340                           
+  1341                           ;incstack = 0
+  1342                           ;memory_write@address stored from wreg
+  1343  0013E2  6E13               	movwf	memory_write@address^0,c
+  1344  0013E4                     
+  1345                           ;../Temple_Light_Controller/eeprom.h: 18: void memory_write(char address,char data);../T
+      +                          emple_Light_Controller/eeprom.h: 19: {;../Temple_Light_Controller/eeprom.h: 20:    EEADR
+      +                          =address;
+  1346  0013E4  C013  FFA9         	movff	memory_write@address,4009	;volatile
+  1347  0013E8                     
+  1348                           ;../Temple_Light_Controller/eeprom.h: 21:    EEADRH=0x00;
+  1349  0013E8  0E00               	movlw	0
+  1350  0013EA  6EAA               	movwf	170,c	;volatile
+  1351  0013EC                     
+  1352                           ;../Temple_Light_Controller/eeprom.h: 22:    EEDATA=data;
+  1353  0013EC  C011  FFA8         	movff	memory_write@data,4008	;volatile
+  1354  0013F0                     
+  1355                           ;../Temple_Light_Controller/eeprom.h: 23:    INTCONbits.GIE=0;
+  1356  0013F0  9EF2               	bcf	242,7,c	;volatile
+  1357  0013F2                     
+  1358                           ;../Temple_Light_Controller/eeprom.h: 24:    INTCONbits.PEIE=0;
+  1359  0013F2  9CF2               	bcf	242,6,c	;volatile
+  1360  0013F4                     
+  1361                           ;../Temple_Light_Controller/eeprom.h: 25:    PIE2bits.EEIE=0;
+  1362  0013F4  98A0               	bcf	160,4,c	;volatile
+  1363  0013F6                     
+  1364                           ;../Temple_Light_Controller/eeprom.h: 26:    EECON1bits.EEPGD=0;
+  1365  0013F6  9EA6               	bcf	166,7,c	;volsfr
+  1366  0013F8                     
+  1367                           ;../Temple_Light_Controller/eeprom.h: 27:    EECON1bits.WREN=1;
+  1368  0013F8  84A6               	bsf	166,2,c	;volsfr
+  1369  0013FA                     
+  1370                           ;../Temple_Light_Controller/eeprom.h: 28:    EECON1bits.WR=0;
+  1371  0013FA  92A6               	bcf	166,1,c	;volsfr
+  1372  0013FC                     
+  1373                           ;../Temple_Light_Controller/eeprom.h: 29:    EECON2=0x55;
+  1374  0013FC  0E55               	movlw	85
+  1375  0013FE  6EA7               	movwf	167,c	;volsfr
+  1376  001400                     
+  1377                           ;../Temple_Light_Controller/eeprom.h: 30:    EECON2=0xAA;
+  1378  001400  0EAA               	movlw	170
+  1379  001402  6EA7               	movwf	167,c	;volsfr
+  1380  001404                     
+  1381                           ;../Temple_Light_Controller/eeprom.h: 31:    EECON1bits.WR=1;
+  1382  001404  82A6               	bsf	166,1,c	;volsfr
+  1383  001406                     
+  1384                           ;../Temple_Light_Controller/eeprom.h: 32:    INTCONbits.GIE=1;
+  1385  001406  8EF2               	bsf	242,7,c	;volatile
+  1386  001408                     
+  1387                           ;../Temple_Light_Controller/eeprom.h: 33:    INTCONbits.PEIE=1;
+  1388  001408  8CF2               	bsf	242,6,c	;volatile
+  1389  00140A                     
+  1390                           ;../Temple_Light_Controller/eeprom.h: 34:    PIE2bits.EEIE=1;
+  1391  00140A  88A0               	bsf	160,4,c	;volatile
+  1392  00140C                     
+  1393                           ;../Temple_Light_Controller/eeprom.h: 35:    EECON1bits.WREN=0;
+  1394  00140C  94A6               	bcf	166,2,c	;volsfr
+  1395  00140E                     l1274:
+  1396                           
+  1397                           ;../Temple_Light_Controller/eeprom.h: 38:    {;../Temple_Light_Controller/eeprom.h: 39: 
+      +                                 if(EECON1bits.WRERR==1)
+  1398  00140E  A6A6               	btfss	166,3,c	;volsfr
+  1399  001410  EF0C  F00A         	goto	u431
+  1400  001414  EF0E  F00A         	goto	u430
+  1401  001418                     u431:
+  1402  001418  EF0F  F00A         	goto	l135
+  1403  00141C                     u430:
+  1404  00141C                     
+  1405                           ;../Temple_Light_Controller/eeprom.h: 40:        {;../Temple_Light_Controller/eeprom.h: 
+      +                          41:            EECON1bits.WR=1;
+  1406  00141C  82A6               	bsf	166,1,c	;volsfr
+  1407  00141E                     l135:
+  1408                           
+  1409                           ;../Temple_Light_Controller/eeprom.h: 44:        if(PIR2bits.EEIF==1){break;}
+  1410  00141E  A8A1               	btfss	161,4,c	;volatile
+  1411  001420  EF14  F00A         	goto	u441
+  1412  001424  EF16  F00A         	goto	u440
+  1413  001428                     u441:
+  1414  001428  EF07  F00A         	goto	l1274
+  1415  00142C                     u440:
+  1416  00142C                     
+  1417                           ;../Temple_Light_Controller/eeprom.h: 46:    PIR2bits.EEIF=0;
+  1418  00142C  98A1               	bcf	161,4,c	;volatile
+  1419                           
+  1420                           ;../Temple_Light_Controller/eeprom.h: 47:    INTCONbits.GIE=0;
+  1421  00142E  9EF2               	bcf	242,7,c	;volatile
+  1422                           
+  1423                           ;../Temple_Light_Controller/eeprom.h: 48:    INTCONbits.PEIE=0;
+  1424  001430  9CF2               	bcf	242,6,c	;volatile
+  1425                           
+  1426                           ;../Temple_Light_Controller/eeprom.h: 49:    PIE2bits.EEIE=0;
+  1427  001432  98A0               	bcf	160,4,c	;volatile
+  1428                           
+  1429                           ;../Temple_Light_Controller/eeprom.h: 50:    EECON1bits.WREN=0;
+  1430  001434  94A6               	bcf	166,2,c	;volsfr
+  1431                           
+  1432                           ;../Temple_Light_Controller/eeprom.h: 51:    EECON1bits.WR=0;
+  1433  001436  92A6               	bcf	166,1,c	;volsfr
+  1434  001438                     
+  1435                           ;../Temple_Light_Controller/eeprom.h: 52:    _delay((unsigned long)((1)*(20000000/4000.0
+      +                          )));
+  1436  001438  0E07               	movlw	7
+  1437  00143A  6E12               	movwf	??_memory_write^0,c
+  1438  00143C  0E7D               	movlw	125
+  1439  00143E                     u777:
+  1440  00143E  2EE8               	decfsz	wreg,f,c
+  1441  001440  D7FE               	bra	u777
+  1442  001442  2E12               	decfsz	??_memory_write^0,f,c
+  1443  001444  D7FC               	bra	u777
+  1444  001446  F000               	nop	
+  1445  001448  0012               	return		;funcret
+  1446  00144A                     __end_of_memory_write:
+  1447                           	callstack 0
+  1448                           
+  1449 ;; *************** function _memory_read *****************
+  1450 ;; Defined at:
+  1451 ;;		line 8 in file "../Temple_Light_Controller/eeprom.h"
+  1452 ;; Parameters:    Size  Location     Type
+  1453 ;;  address         1    wreg     unsigned char 
+  1454 ;; Auto vars:     Size  Location     Type
+  1455 ;;  address         1    0[COMRAM] unsigned char 
+  1456 ;; Return value:  Size  Location     Type
+  1457 ;;                  1    wreg      unsigned char 
+  1458 ;; Registers used:
+  1459 ;;		wreg, status,2
+  1460 ;; Tracked objects:
+  1461 ;;		On entry : 0/0
+  1462 ;;		On exit  : 0/0
+  1463 ;;		Unchanged: 0/0
+  1464 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+  1465 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1466 ;;      Locals:         1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1467 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1468 ;;      Totals:         1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1469 ;;Total ram usage:        1 bytes
+  1470 ;; Hardware stack levels used: 1
+  1471 ;; This function calls:
+  1472 ;;		Nothing
+  1473 ;; This function is called by:
+  1474 ;;		_status_check
+  1475 ;; This function uses a non-reentrant model
+  1476 ;;
+  1477                           
+  1478                           	psect	text8
+  1479  0015FA                     __ptext8:
+  1480                           	callstack 0
+  1481  0015FA                     _memory_read:
+  1482                           	callstack 29
+  1483                           
+  1484                           ;incstack = 0
+  1485                           ;memory_read@address stored from wreg
+  1486  0015FA  6E11               	movwf	memory_read@address^0,c
+  1487  0015FC                     
+  1488                           ;../Temple_Light_Controller/eeprom.h: 8: char memory_read(char address);../Temple_Light_
+      +                          Controller/eeprom.h: 9: {;../Temple_Light_Controller/eeprom.h: 10:     EEADR=address;
+  1489  0015FC  C011  FFA9         	movff	memory_read@address,4009	;volatile
+  1490  001600                     
+  1491                           ;../Temple_Light_Controller/eeprom.h: 11:     EEADRH=0x00;
+  1492  001600  0E00               	movlw	0
+  1493  001602  6EAA               	movwf	170,c	;volatile
+  1494  001604                     
+  1495                           ;../Temple_Light_Controller/eeprom.h: 12:     EECON1bits.EEPGD=0;
+  1496  001604  9EA6               	bcf	166,7,c	;volsfr
+  1497  001606                     
+  1498                           ;../Temple_Light_Controller/eeprom.h: 13:     EECON1bits.RD=1;
+  1499  001606  80A6               	bsf	166,0,c	;volsfr
+  1500  001608                     l128:
+  1501  001608  B0A6               	btfsc	166,0,c	;volsfr
+  1502  00160A  EF09  F00B         	goto	u141
+  1503  00160E  EF0B  F00B         	goto	u140
+  1504  001612                     u141:
+  1505  001612  EF04  F00B         	goto	l128
+  1506  001616                     u140:
+  1507  001616                     
+  1508                           ;../Temple_Light_Controller/eeprom.h: 15:     return EEDATA;
+  1509  001616  50A8               	movf	168,w,c	;volatile
+  1510  001618  0012               	return		;funcret
+  1511  00161A                     __end_of_memory_read:
+  1512                           	callstack 0
+  1513                           
+  1514 ;; *************** function _lcd_init *****************
+  1515 ;; Defined at:
+  1516 ;;		line 79 in file "../Temple_Light_Controller/lcd.h"
+  1517 ;; Parameters:    Size  Location     Type
+  1518 ;;		None
+  1519 ;; Auto vars:     Size  Location     Type
+  1520 ;;		None
+  1521 ;; Return value:  Size  Location     Type
+  1522 ;;                  1    wreg      void 
+  1523 ;; Registers used:
+  1524 ;;		wreg, status,2, cstack
+  1525 ;; Tracked objects:
+  1526 ;;		On entry : 0/0
+  1527 ;;		On exit  : 0/0
+  1528 ;;		Unchanged: 0/0
+  1529 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+  1530 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1531 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1532 ;;      Temps:          1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1533 ;;      Totals:         1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1534 ;;Total ram usage:        1 bytes
+  1535 ;; Hardware stack levels used: 1
+  1536 ;; Hardware stack levels required when called: 2
+  1537 ;; This function calls:
+  1538 ;;		_Lcd_Cmd
+  1539 ;;		_Lcd_Port
+  1540 ;; This function is called by:
+  1541 ;;		_main
+  1542 ;; This function uses a non-reentrant model
+  1543 ;;
+  1544                           
+  1545                           	psect	text9
+  1546  001370                     __ptext9:
+  1547                           	callstack 0
+  1548  001370                     _lcd_init:
+  1549                           	callstack 28
+  1550  001370                     
+  1551                           ;../Temple_Light_Controller/lcd.h: 81:   Lcd_Port(0x00);
+  1552  001370  0E00               	movlw	0
+  1553  001372  EC54  F00A         	call	_Lcd_Port
+  1554  001376                     
+  1555                           ;../Temple_Light_Controller/lcd.h: 82:    _delay((unsigned long)((20)*(20000000/4000.0))
+      +                          );
+  1556  001376  0E82               	movlw	130
+  1557  001378  6E14               	movwf	??_lcd_init^0,c
+  1558  00137A  0EDE               	movlw	222
+  1559  00137C                     u787:
+  1560  00137C  2EE8               	decfsz	wreg,f,c
+  1561  00137E  D7FE               	bra	u787
+  1562  001380  2E14               	decfsz	??_lcd_init^0,f,c
+  1563  001382  D7FC               	bra	u787
+  1564  001384                     
+  1565                           ;../Temple_Light_Controller/lcd.h: 83:   Lcd_Cmd(0x03);
+  1566  001384  0E03               	movlw	3
+  1567  001386  ECE5  F00A         	call	_Lcd_Cmd
+  1568  00138A                     
+  1569                           ;../Temple_Light_Controller/lcd.h: 84:  _delay((unsigned long)((5)*(20000000/4000.0)));
+  1570  00138A  0E21               	movlw	33
+  1571  00138C  6E14               	movwf	??_lcd_init^0,c
+  1572  00138E  0E76               	movlw	118
+  1573  001390                     u797:
+  1574  001390  2EE8               	decfsz	wreg,f,c
+  1575  001392  D7FE               	bra	u797
+  1576  001394  2E14               	decfsz	??_lcd_init^0,f,c
+  1577  001396  D7FC               	bra	u797
+  1578  001398  D000               	nop2	
+  1579  00139A                     
+  1580                           ;../Temple_Light_Controller/lcd.h: 85:   Lcd_Cmd(0x03);
+  1581  00139A  0E03               	movlw	3
+  1582  00139C  ECE5  F00A         	call	_Lcd_Cmd
+  1583  0013A0                     
+  1584                           ;../Temple_Light_Controller/lcd.h: 86:  _delay((unsigned long)((11)*(20000000/4000.0)));
+  1585  0013A0  0E48               	movlw	72
+  1586  0013A2  6E14               	movwf	??_lcd_init^0,c
+  1587  0013A4  0E6C               	movlw	108
+  1588  0013A6                     u807:
+  1589  0013A6  2EE8               	decfsz	wreg,f,c
+  1590  0013A8  D7FE               	bra	u807
+  1591  0013AA  2E14               	decfsz	??_lcd_init^0,f,c
+  1592  0013AC  D7FC               	bra	u807
+  1593  0013AE  D000               	nop2	
+  1594  0013B0                     
+  1595                           ;../Temple_Light_Controller/lcd.h: 87:   Lcd_Cmd(0x03);
+  1596  0013B0  0E03               	movlw	3
+  1597  0013B2  ECE5  F00A         	call	_Lcd_Cmd
+  1598  0013B6                     
+  1599                           ;../Temple_Light_Controller/lcd.h: 88:   Lcd_Cmd(0x02);
+  1600  0013B6  0E02               	movlw	2
+  1601  0013B8  ECE5  F00A         	call	_Lcd_Cmd
+  1602  0013BC                     
+  1603                           ;../Temple_Light_Controller/lcd.h: 89:   Lcd_Cmd(0x02);
+  1604  0013BC  0E02               	movlw	2
+  1605  0013BE  ECE5  F00A         	call	_Lcd_Cmd
+  1606  0013C2                     
+  1607                           ;../Temple_Light_Controller/lcd.h: 90:   Lcd_Cmd(0x08);
+  1608  0013C2  0E08               	movlw	8
+  1609  0013C4  ECE5  F00A         	call	_Lcd_Cmd
+  1610  0013C8                     
+  1611                           ;../Temple_Light_Controller/lcd.h: 91:   Lcd_Cmd(0x00);
+  1612  0013C8  0E00               	movlw	0
+  1613  0013CA  ECE5  F00A         	call	_Lcd_Cmd
+  1614  0013CE                     
+  1615                           ;../Temple_Light_Controller/lcd.h: 92:   Lcd_Cmd(0x0C);
+  1616  0013CE  0E0C               	movlw	12
+  1617  0013D0  ECE5  F00A         	call	_Lcd_Cmd
+  1618  0013D4                     
+  1619                           ;../Temple_Light_Controller/lcd.h: 93:   Lcd_Cmd(0x00);
+  1620  0013D4  0E00               	movlw	0
+  1621  0013D6  ECE5  F00A         	call	_Lcd_Cmd
+  1622  0013DA                     
+  1623                           ;../Temple_Light_Controller/lcd.h: 94:   Lcd_Cmd(0x06);
+  1624  0013DA  0E06               	movlw	6
+  1625  0013DC  ECE5  F00A         	call	_Lcd_Cmd
+  1626  0013E0  0012               	return		;funcret
+  1627  0013E2                     __end_of_lcd_init:
+  1628                           	callstack 0
+  1629                           
+  1630 ;; *************** function _Lcd_Cmd *****************
+  1631 ;; Defined at:
+  1632 ;;		line 29 in file "../Temple_Light_Controller/lcd.h"
+  1633 ;; Parameters:    Size  Location     Type
+  1634 ;;  a               1    wreg     unsigned char 
+  1635 ;; Auto vars:     Size  Location     Type
+  1636 ;;  a               1    2[COMRAM] unsigned char 
+  1637 ;; Return value:  Size  Location     Type
+  1638 ;;                  1    wreg      void 
+  1639 ;; Registers used:
+  1640 ;;		wreg, status,2, cstack
+  1641 ;; Tracked objects:
+  1642 ;;		On entry : 0/0
+  1643 ;;		On exit  : 0/0
+  1644 ;;		Unchanged: 0/0
+  1645 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+  1646 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1647 ;;      Locals:         1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1648 ;;      Temps:          1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1649 ;;      Totals:         2       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1650 ;;Total ram usage:        2 bytes
+  1651 ;; Hardware stack levels used: 1
+  1652 ;; Hardware stack levels required when called: 1
+  1653 ;; This function calls:
+  1654 ;;		_Lcd_Port
+  1655 ;; This function is called by:
+  1656 ;;		_lcd_clear
+  1657 ;;		_lcd_line
+  1658 ;;		_lcd_init
+  1659 ;; This function uses a non-reentrant model
+  1660 ;;
+  1661                           
+  1662                           	psect	text10
+  1663  0015CA                     __ptext10:
+  1664                           	callstack 0
+  1665  0015CA                     _Lcd_Cmd:
+  1666                           	callstack 27
+  1667                           
+  1668                           ;incstack = 0
+  1669                           ;Lcd_Cmd@a stored from wreg
+  1670  0015CA  6E13               	movwf	Lcd_Cmd@a^0,c
+  1671  0015CC                     
+  1672                           ;../Temple_Light_Controller/lcd.h: 29: void Lcd_Cmd(unsigned char a);../Temple_Light_Con
+      +                          troller/lcd.h: 30: {;../Temple_Light_Controller/lcd.h: 31:  PORTBbits.RB2 = 0;
+  1673  0015CC  9481               	bcf	129,2,c	;volatile
+  1674  0015CE                     
+  1675                           ;../Temple_Light_Controller/lcd.h: 32:     _delay((unsigned long)((1)*(20000000/4000.0))
+      +                          );
+  1676  0015CE  0E07               	movlw	7
+  1677  0015D0  6E12               	movwf	??_Lcd_Cmd^0,c
+  1678  0015D2  0E7D               	movlw	125
+  1679  0015D4                     u817:
+  1680  0015D4  2EE8               	decfsz	wreg,f,c
+  1681  0015D6  D7FE               	bra	u817
+  1682  0015D8  2E12               	decfsz	??_Lcd_Cmd^0,f,c
+  1683  0015DA  D7FC               	bra	u817
+  1684  0015DC  F000               	nop	
+  1685  0015DE                     
+  1686                           ;../Temple_Light_Controller/lcd.h: 33:  Lcd_Port(a);
+  1687  0015DE  5013               	movf	Lcd_Cmd@a^0,w,c
+  1688  0015E0  EC54  F00A         	call	_Lcd_Port
+  1689  0015E4                     
+  1690                           ;../Temple_Light_Controller/lcd.h: 34:  PORTBbits.RB3 = 1;
+  1691  0015E4  8681               	bsf	129,3,c	;volatile
+  1692                           
+  1693                           ;../Temple_Light_Controller/lcd.h: 35:     _delay((unsigned long)((1)*(20000000/4000.0))
+      +                          );
+  1694  0015E6  0E07               	movlw	7
+  1695  0015E8  6E12               	movwf	??_Lcd_Cmd^0,c
+  1696  0015EA  0E7D               	movlw	125
+  1697  0015EC                     u827:
+  1698  0015EC  2EE8               	decfsz	wreg,f,c
+  1699  0015EE  D7FE               	bra	u827
+  1700  0015F0  2E12               	decfsz	??_Lcd_Cmd^0,f,c
+  1701  0015F2  D7FC               	bra	u827
+  1702  0015F4  F000               	nop	
+  1703  0015F6                     
+  1704                           ;../Temple_Light_Controller/lcd.h: 36:     PORTBbits.RB3 = 0;
+  1705  0015F6  9681               	bcf	129,3,c	;volatile
+  1706  0015F8  0012               	return		;funcret
+  1707  0015FA                     __end_of_Lcd_Cmd:
+  1708                           	callstack 0
+  1709                           
+  1710 ;; *************** function _Lcd_Port *****************
+  1711 ;; Defined at:
+  1712 ;;		line 7 in file "../Temple_Light_Controller/lcd.h"
+  1713 ;; Parameters:    Size  Location     Type
+  1714 ;;  a               1    wreg     unsigned char 
+  1715 ;; Auto vars:     Size  Location     Type
+  1716 ;;  a               1    0[COMRAM] unsigned char 
+  1717 ;; Return value:  Size  Location     Type
+  1718 ;;                  1    wreg      void 
+  1719 ;; Registers used:
+  1720 ;;		wreg
+  1721 ;; Tracked objects:
+  1722 ;;		On entry : 0/0
+  1723 ;;		On exit  : 0/0
+  1724 ;;		Unchanged: 0/0
+  1725 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+  1726 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1727 ;;      Locals:         1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1728 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1729 ;;      Totals:         1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1730 ;;Total ram usage:        1 bytes
+  1731 ;; Hardware stack levels used: 1
+  1732 ;; This function calls:
+  1733 ;;		Nothing
+  1734 ;; This function is called by:
+  1735 ;;		_Lcd_Cmd
+  1736 ;;		_lcd_init
+  1737 ;;		_lcd_char
+  1738 ;; This function uses a non-reentrant model
+  1739 ;;
+  1740                           
+  1741                           	psect	text11
+  1742  0014A8                     __ptext11:
+  1743                           	callstack 0
+  1744  0014A8                     _Lcd_Port:
+  1745                           	callstack 27
+  1746                           
+  1747                           ;incstack = 0
+  1748                           ;Lcd_Port@a stored from wreg
+  1749  0014A8  6E11               	movwf	Lcd_Port@a^0,c
+  1750  0014AA                     
+  1751                           ;../Temple_Light_Controller/lcd.h: 7: void Lcd_Port(unsigned char a);../Temple_Light_Con
+      +                          troller/lcd.h: 8: {;../Temple_Light_Controller/lcd.h: 9:  if(a & 1)
+  1752  0014AA  A011               	btfss	Lcd_Port@a^0,0,c
+  1753  0014AC  EF5A  F00A         	goto	u11
+  1754  0014B0  EF5C  F00A         	goto	u10
+  1755  0014B4                     u11:
+  1756  0014B4  EF5F  F00A         	goto	l77
+  1757  0014B8                     u10:
+  1758  0014B8                     
+  1759                           ;../Temple_Light_Controller/lcd.h: 10:   PORTBbits.RB4 = 1;
+  1760  0014B8  8881               	bsf	129,4,c	;volatile
+  1761  0014BA  EF60  F00A         	goto	l848
+  1762  0014BE                     l77:
+  1763                           
+  1764                           ;../Temple_Light_Controller/lcd.h: 12:   PORTBbits.RB4 = 0;
+  1765  0014BE  9881               	bcf	129,4,c	;volatile
+  1766  0014C0                     l848:
+  1767                           
+  1768                           ;../Temple_Light_Controller/lcd.h: 14:  if(a & 2)
+  1769  0014C0  A211               	btfss	Lcd_Port@a^0,1,c
+  1770  0014C2  EF65  F00A         	goto	u21
+  1771  0014C6  EF67  F00A         	goto	u20
+  1772  0014CA                     u21:
+  1773  0014CA  EF6A  F00A         	goto	l79
+  1774  0014CE                     u20:
+  1775  0014CE                     
+  1776                           ;../Temple_Light_Controller/lcd.h: 15:   PORTBbits.RB5 = 1;
+  1777  0014CE  8A81               	bsf	129,5,c	;volatile
+  1778  0014D0  EF6B  F00A         	goto	l852
+  1779  0014D4                     l79:
+  1780                           
+  1781                           ;../Temple_Light_Controller/lcd.h: 17:   PORTBbits.RB5 = 0;
+  1782  0014D4  9A81               	bcf	129,5,c	;volatile
+  1783  0014D6                     l852:
+  1784                           
+  1785                           ;../Temple_Light_Controller/lcd.h: 19:  if(a & 4)
+  1786  0014D6  A411               	btfss	Lcd_Port@a^0,2,c
+  1787  0014D8  EF70  F00A         	goto	u31
+  1788  0014DC  EF72  F00A         	goto	u30
+  1789  0014E0                     u31:
+  1790  0014E0  EF75  F00A         	goto	l81
+  1791  0014E4                     u30:
+  1792  0014E4                     
+  1793                           ;../Temple_Light_Controller/lcd.h: 20:   PORTBbits.RB6 = 1;
+  1794  0014E4  8C81               	bsf	129,6,c	;volatile
+  1795  0014E6  EF76  F00A         	goto	l856
+  1796  0014EA                     l81:
+  1797                           
+  1798                           ;../Temple_Light_Controller/lcd.h: 22:   PORTBbits.RB6 = 0;
+  1799  0014EA  9C81               	bcf	129,6,c	;volatile
+  1800  0014EC                     l856:
+  1801                           
+  1802                           ;../Temple_Light_Controller/lcd.h: 24:  if(a & 8)
+  1803  0014EC  A611               	btfss	Lcd_Port@a^0,3,c
+  1804  0014EE  EF7B  F00A         	goto	u41
+  1805  0014F2  EF7D  F00A         	goto	u40
+  1806  0014F6                     u41:
+  1807  0014F6  EF80  F00A         	goto	l83
+  1808  0014FA                     u40:
+  1809  0014FA                     
+  1810                           ;../Temple_Light_Controller/lcd.h: 25:   PORTBbits.RB7 = 1;
+  1811  0014FA  8E81               	bsf	129,7,c	;volatile
+  1812  0014FC  EF81  F00A         	goto	l85
+  1813  001500                     l83:
+  1814                           
+  1815                           ;../Temple_Light_Controller/lcd.h: 27:   PORTBbits.RB7 = 0;
+  1816  001500  9E81               	bcf	129,7,c	;volatile
+  1817  001502                     l85:
+  1818  001502  0012               	return		;funcret
+  1819  001504                     __end_of_Lcd_Port:
+  1820                           	callstack 0
+  1821                           
+  1822                           	psect	rparam
+  1823  0000                     
+  1824                           	psect	idloc
+  1825                           
+  1826                           ;Config register IDLOC0 @ 0x200000
+  1827                           ;	unspecified, using default values
+  1828  200000                     	org	2097152
+  1829  200000  FF                 	db	255
+  1830                           
+  1831                           ;Config register IDLOC1 @ 0x200001
+  1832                           ;	unspecified, using default values
+  1833  200001                     	org	2097153
+  1834  200001  FF                 	db	255
+  1835                           
+  1836                           ;Config register IDLOC2 @ 0x200002
+  1837                           ;	unspecified, using default values
+  1838  200002                     	org	2097154
+  1839  200002  FF                 	db	255
+  1840                           
+  1841                           ;Config register IDLOC3 @ 0x200003
+  1842                           ;	unspecified, using default values
+  1843  200003                     	org	2097155
+  1844  200003  FF                 	db	255
+  1845                           
+  1846                           ;Config register IDLOC4 @ 0x200004
+  1847                           ;	unspecified, using default values
+  1848  200004                     	org	2097156
+  1849  200004  FF                 	db	255
+  1850                           
+  1851                           ;Config register IDLOC5 @ 0x200005
+  1852                           ;	unspecified, using default values
+  1853  200005                     	org	2097157
+  1854  200005  FF                 	db	255
+  1855                           
+  1856                           ;Config register IDLOC6 @ 0x200006
+  1857                           ;	unspecified, using default values
+  1858  200006                     	org	2097158
+  1859  200006  FF                 	db	255
+  1860                           
+  1861                           ;Config register IDLOC7 @ 0x200007
+  1862                           ;	unspecified, using default values
+  1863  200007                     	org	2097159
+  1864  200007  FF                 	db	255
+  1865                           
+  1866                           	psect	config
+  1867                           
+  1868                           ; Padding undefined space
+  1869  300000                     	org	3145728
+  1870  300000  FF                 	db	255
+  1871                           
+  1872                           ;Config register CONFIG1H @ 0x300001
+  1873                           ;	Oscillator Selection bits
+  1874                           ;	FOSC = HSHP, HS oscillator (high power > 16 MHz)
+  1875                           ;	4X PLL Enable
+  1876                           ;	PLLCFG = OFF, Oscillator used directly
+  1877                           ;	Primary clock enable bit
+  1878                           ;	PRICLKEN = ON, Primary clock is always enabled
+  1879                           ;	Fail-Safe Clock Monitor Enable bit
+  1880                           ;	FCMEN = OFF, Fail-Safe Clock Monitor disabled
+  1881                           ;	Internal/External Oscillator Switchover bit
+  1882                           ;	IESO = OFF, Oscillator Switchover mode disabled
+  1883  300001                     	org	3145729
+  1884  300001  22                 	db	34
+  1885                           
+  1886                           ;Config register CONFIG2L @ 0x300002
+  1887                           ;	Power-up Timer Enable bit
+  1888                           ;	PWRTEN = OFF, Power up timer disabled
+  1889                           ;	Brown-out Reset Enable bits
+  1890                           ;	BOREN = ON, Brown-out Reset enabled and controlled by software (SBOREN is enabled)
+  1891                           ;	Brown Out Reset Voltage bits
+  1892                           ;	BORV = 250, VBOR set to 2.50 V nominal
+  1893  300002                     	org	3145730
+  1894  300002  0B                 	db	11
+  1895                           
+  1896                           ;Config register CONFIG2H @ 0x300003
+  1897                           ;	Watchdog Timer Enable bits
+  1898                           ;	WDTEN = ON, WDT is always enabled. SWDTEN bit has no effect
+  1899                           ;	Watchdog Timer Postscale Select bits
+  1900                           ;	WDTPS = 32768, 1:32768
+  1901  300003                     	org	3145731
+  1902  300003  3F                 	db	63
+  1903                           
+  1904                           ; Padding undefined space
+  1905  300004                     	org	3145732
+  1906  300004  FF                 	db	255
+  1907                           
+  1908                           ;Config register CONFIG3H @ 0x300005
+  1909                           ;	CCP2 MUX bit
+  1910                           ;	CCP2MX = PORTC1, CCP2 input/output is multiplexed with RC1
+  1911                           ;	PORTB A/D Enable bit
+  1912                           ;	PBADEN = OFF, PORTB<5:0> pins are configured as digital I/O on Reset
+  1913                           ;	P3A/CCP3 Mux bit
+  1914                           ;	CCP3MX = PORTB5, P3A/CCP3 input/output is multiplexed with RB5
+  1915                           ;	HFINTOSC Fast Start-up
+  1916                           ;	HFOFST = OFF, HFINTOSC output and ready status are delayed by the oscillator stable st
+      +                          atus
+  1917                           ;	Timer3 Clock input mux bit
+  1918                           ;	T3CMX = PORTC0, T3CKI is on RC0
+  1919                           ;	ECCP2 B output mux bit
+  1920                           ;	P2BMX = PORTD2, P2B is on RD2
+  1921                           ;	MCLR Pin Enable bit
+  1922                           ;	MCLRE = EXTMCLR, MCLR pin enabled, RE3 input pin disabled
+  1923  300005                     	org	3145733
+  1924  300005  B5                 	db	181
+  1925                           
+  1926                           ;Config register CONFIG4L @ 0x300006
+  1927                           ;	Stack Full/Underflow Reset Enable bit
+  1928                           ;	STVREN = ON, Stack full/underflow will cause Reset
+  1929                           ;	Single-Supply ICSP Enable bit
+  1930                           ;	LVP = OFF, Single-Supply ICSP disabled
+  1931                           ;	Extended Instruction Set Enable bit
+  1932                           ;	XINST = OFF, Instruction set extension and Indexed Addressing mode disabled (Legacy mo
+      +                          de)
+  1933                           ;	Background Debug
+  1934                           ;	DEBUG = 0x1, unprogrammed default
+  1935  300006                     	org	3145734
+  1936  300006  81                 	db	129
+  1937                           
+  1938                           ; Padding undefined space
+  1939  300007                     	org	3145735
+  1940  300007  FF                 	db	255
+  1941                           
+  1942                           ;Config register CONFIG5L @ 0x300008
+  1943                           ;	Code Protection Block 0
+  1944                           ;	CP0 = OFF, Block 0 (000800-003FFFh) not code-protected
+  1945                           ;	Code Protection Block 1
+  1946                           ;	CP1 = OFF, Block 1 (004000-007FFFh) not code-protected
+  1947                           ;	Code Protection Block 2
+  1948                           ;	CP2 = OFF, Block 2 (008000-00BFFFh) not code-protected
+  1949                           ;	Code Protection Block 3
+  1950                           ;	CP3 = OFF, Block 3 (00C000-00FFFFh) not code-protected
+  1951  300008                     	org	3145736
+  1952  300008  0F                 	db	15
+  1953                           
+  1954                           ;Config register CONFIG5H @ 0x300009
+  1955                           ;	Boot Block Code Protection bit
+  1956                           ;	CPB = OFF, Boot block (000000-0007FFh) not code-protected
+  1957                           ;	Data EEPROM Code Protection bit
+  1958                           ;	CPD = OFF, Data EEPROM not code-protected
+  1959  300009                     	org	3145737
+  1960  300009  C0                 	db	192
+  1961                           
+  1962                           ;Config register CONFIG6L @ 0x30000A
+  1963                           ;	Write Protection Block 0
+  1964                           ;	WRT0 = OFF, Block 0 (000800-003FFFh) not write-protected
+  1965                           ;	Write Protection Block 1
+  1966                           ;	WRT1 = OFF, Block 1 (004000-007FFFh) not write-protected
+  1967                           ;	Write Protection Block 2
+  1968                           ;	WRT2 = OFF, Block 2 (008000-00BFFFh) not write-protected
+  1969                           ;	Write Protection Block 3
+  1970                           ;	WRT3 = OFF, Block 3 (00C000-00FFFFh) not write-protected
+  1971  30000A                     	org	3145738
+  1972  30000A  0F                 	db	15
+  1973                           
+  1974                           ;Config register CONFIG6H @ 0x30000B
+  1975                           ;	Configuration Register Write Protection bit
+  1976                           ;	WRTC = OFF, Configuration registers (300000-3000FFh) not write-protected
+  1977                           ;	Boot Block Write Protection bit
+  1978                           ;	WRTB = OFF, Boot Block (000000-0007FFh) not write-protected
+  1979                           ;	Data EEPROM Write Protection bit
+  1980                           ;	WRTD = OFF, Data EEPROM not write-protected
+  1981  30000B                     	org	3145739
+  1982  30000B  E0                 	db	224
+  1983                           
+  1984                           ;Config register CONFIG7L @ 0x30000C
+  1985                           ;	Table Read Protection Block 0
+  1986                           ;	EBTR0 = OFF, Block 0 (000800-003FFFh) not protected from table reads executed in other
+      +                           blocks
+  1987                           ;	Table Read Protection Block 1
+  1988                           ;	EBTR1 = OFF, Block 1 (004000-007FFFh) not protected from table reads executed in other
+      +                           blocks
+  1989                           ;	Table Read Protection Block 2
+  1990                           ;	EBTR2 = OFF, Block 2 (008000-00BFFFh) not protected from table reads executed in other
+      +                           blocks
+  1991                           ;	Table Read Protection Block 3
+  1992                           ;	EBTR3 = OFF, Block 3 (00C000-00FFFFh) not protected from table reads executed in other
+      +                           blocks
+  1993  30000C                     	org	3145740
+  1994  30000C  0F                 	db	15
+  1995                           
+  1996                           ;Config register CONFIG7H @ 0x30000D
+  1997                           ;	Boot Block Table Read Protection bit
+  1998                           ;	EBTRB = OFF, Boot Block (000000-0007FFh) not protected from table reads executed in ot
+      +                          her blocks
+  1999  30000D                     	org	3145741
+  2000  30000D  40                 	db	64
+  2001                           tosu	equ	0xFFF
+  2002                           tosh	equ	0xFFE
+  2003                           tosl	equ	0xFFD
+  2004                           stkptr	equ	0xFFC
+  2005                           pclatu	equ	0xFFB
+  2006                           pclath	equ	0xFFA
+  2007                           pcl	equ	0xFF9
+  2008                           tblptru	equ	0xFF8
+  2009                           tblptrh	equ	0xFF7
+  2010                           tblptrl	equ	0xFF6
+  2011                           tablat	equ	0xFF5
+  2012                           prodh	equ	0xFF4
+  2013                           prodl	equ	0xFF3
+  2014                           indf0	equ	0xFEF
+  2015                           postinc0	equ	0xFEE
+  2016                           postdec0	equ	0xFED
+  2017                           preinc0	equ	0xFEC
+  2018                           plusw0	equ	0xFEB
+  2019                           fsr0h	equ	0xFEA
+  2020                           fsr0l	equ	0xFE9
+  2021                           wreg	equ	0xFE8
+  2022                           indf1	equ	0xFE7
+  2023                           postinc1	equ	0xFE6
+  2024                           postdec1	equ	0xFE5
+  2025                           preinc1	equ	0xFE4
+  2026                           plusw1	equ	0xFE3
+  2027                           fsr1h	equ	0xFE2
+  2028                           fsr1l	equ	0xFE1
+  2029                           bsr	equ	0xFE0
+  2030                           indf2	equ	0xFDF
+  2031                           postinc2	equ	0xFDE
+  2032                           postdec2	equ	0xFDD
+  2033                           preinc2	equ	0xFDC
+  2034                           plusw2	equ	0xFDB
+  2035                           fsr2h	equ	0xFDA
+  2036                           fsr2l	equ	0xFD9
+  2037                           status	equ	0xFD8
+
+Data Sizes:
+    Strings     23
+    Constant    0
+    Data        14
+    BSS         16
+    Persistent  0
+    Stack       0
+
+Auto Spaces:
+    Space          Size  Autos    Used
+    COMRAM           95     16      46
+    BANK0           160      0       0
+    BANK1           256      0       0
+    BANK2           256      0       0
+    BANK3           256      0       0
+    BANK4           256      0       0
+    BANK5           256      0       0
+    BANK6           256      0       0
+    BANK7           256      0       0
+    BANK8           256      0       0
+    BANK9           256      0       0
+    BANK10          256      0       0
+    BANK11          256      0       0
+    BANK12          256      0       0
+    BANK13          256      0       0
+    BANK14          256      0       0
+    BANK15           56      0       0
+
+Pointer List with Targets:
+
+    lcd_data@a	PTR const unsigned char  size(2) Largest target is 12
+		 -> STR_2(CODE[11]), STR_1(CODE[12]), 
+
+
+Critical Paths under _main in COMRAM
+
+    _main->_welcome_msg
+    _welcome_msg->_lcd_line
+    _lcd_line->_Lcd_Cmd
+    _lcd_data->_lcd_char
+    _lcd_char->_Lcd_Port
+    _lcd_clear->_Lcd_Cmd
+    _status_check->_memory_write
+    _lcd_init->_Lcd_Cmd
+    _Lcd_Cmd->_Lcd_Port
+
+Critical Paths under _main in BANK0
+
+    None.
+
+Critical Paths under _main in BANK1
+
+    None.
+
+Critical Paths under _main in BANK2
+
+    None.
+
+Critical Paths under _main in BANK3
+
+    None.
+
+Critical Paths under _main in BANK4
+
+    None.
+
+Critical Paths under _main in BANK5
+
+    None.
+
+Critical Paths under _main in BANK6
+
+    None.
+
+Critical Paths under _main in BANK7
+
+    None.
+
+Critical Paths under _main in BANK8
+
+    None.
+
+Critical Paths under _main in BANK9
+
+    None.
+
+Critical Paths under _main in BANK10
+
+    None.
+
+Critical Paths under _main in BANK11
+
+    None.
+
+Critical Paths under _main in BANK12
+
+    None.
+
+Critical Paths under _main in BANK13
+
+    None.
+
+Critical Paths under _main in BANK14
+
+    None.
+
+Critical Paths under _main in BANK15
+
+    None.
+
+Call Graph Tables:
+
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (0) _main                                                 3     3      0    2286
+                                             14 COMRAM     2     2      0
+                          _lcd_clear
+                           _lcd_init
+                       _status_check
+                        _welcome_msg
+ ---------------------------------------------------------------------------------
+ (1) _welcome_msg                                          2     2      0    1893
+                                             12 COMRAM     2     2      0
+                          _lcd_clear
+                           _lcd_data
+                           _lcd_line
+ ---------------------------------------------------------------------------------
+ (2) _lcd_line                                             9     5      4    1191
+                                              3 COMRAM     9     5      4
+                            _Lcd_Cmd
+ ---------------------------------------------------------------------------------
+ (2) _lcd_data                                             4     2      2     627
+                                              5 COMRAM     4     2      2
+                           _lcd_char
+ ---------------------------------------------------------------------------------
+ (3) _lcd_char                                             4     2      2     431
+                                              1 COMRAM     4     2      2
+                           _Lcd_Port
+ ---------------------------------------------------------------------------------
+ (2) _lcd_clear                                            0     0      0      75
+                            _Lcd_Cmd
+ ---------------------------------------------------------------------------------
+ (1) _status_check                                         3     3      0     182
+                                              3 COMRAM     3     3      0
+                        _memory_read
+                       _memory_write
+ ---------------------------------------------------------------------------------
+ (2) _memory_write                                         3     2      1     120
+                                              0 COMRAM     3     2      1
+ ---------------------------------------------------------------------------------
+ (2) _memory_read                                          1     1      0      15
+                                              0 COMRAM     1     1      0
+ ---------------------------------------------------------------------------------
+ (1) _lcd_init                                             1     1      0     135
+                                              3 COMRAM     1     1      0
+                            _Lcd_Cmd
+                           _Lcd_Port
+ ---------------------------------------------------------------------------------
+ (3) _Lcd_Cmd                                              2     2      0      75
+                                              1 COMRAM     2     2      0
+                           _Lcd_Port
+ ---------------------------------------------------------------------------------
+ (4) _Lcd_Port                                             1     1      0      60
+                                              0 COMRAM     1     1      0
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 4
+ ---------------------------------------------------------------------------------
+
+ Call Graph Graphs:
+
+ _main (ROOT)
+   _lcd_clear
+     _Lcd_Cmd
+       _Lcd_Port
+   _lcd_init
+     _Lcd_Cmd
+     _Lcd_Port
+   _status_check
+     _memory_read
+     _memory_write
+   _welcome_msg
+     _lcd_clear
+     _lcd_data
+       _lcd_char
+         _Lcd_Port
+     _lcd_line
+       _Lcd_Cmd
+
+ Address spaces:
+Name               Size   Autos  Total    Cost      Usage
+BIGRAM             F37      0       0      37        0.0%
+EEDATA             400      0       0       0        0.0%
+BITBANK14          100      0       0      33        0.0%
+BANK14             100      0       0      34        0.0%
+BITBANK13          100      0       0      31        0.0%
+BANK13             100      0       0      32        0.0%
+BITBANK12          100      0       0      29        0.0%
+BANK12             100      0       0      30        0.0%
+BITBANK11          100      0       0      27        0.0%
+BANK11             100      0       0      28        0.0%
+BITBANK10          100      0       0      25        0.0%
+BANK10             100      0       0      26        0.0%
+BITBANK9           100      0       0      23        0.0%
+BANK9              100      0       0      24        0.0%
+BITBANK8           100      0       0      21        0.0%
+BANK8              100      0       0      22        0.0%
+BITBANK7           100      0       0      19        0.0%
+BANK7              100      0       0      20        0.0%
+BITBANK6           100      0       0      17        0.0%
+BANK6              100      0       0      18        0.0%
+BITBANK5           100      0       0      15        0.0%
+BANK5              100      0       0      16        0.0%
+BITBANK4           100      0       0      13        0.0%
+BANK4              100      0       0      14        0.0%
+BITBANK3           100      0       0      10        0.0%
+BANK3              100      0       0      11        0.0%
+BITBANK2           100      0       0       8        0.0%
+BANK2              100      0       0       9        0.0%
+BITBANK1           100      0       0       6        0.0%
+BANK1              100      0       0       7        0.0%
+BITBANK0            A0      0       0       4        0.0%
+BANK0               A0      0       0       5        0.0%
+BITCOMRAM           5F      0       0       0        0.0%
+COMRAM              5F     10      2E       1       48.4%
+BITBANK15           38      0       0      35        0.0%
+BANK15              38      0       0      36        0.0%
+BITSFR_1             0      0       0     200        0.0%
+SFR_1                0      0       0     200        0.0%
+BITSFR               0      0       0     200        0.0%
+SFR                  0      0       0     200        0.0%
+STACK                0      0       0       2        0.0%
+NULL                 0      0       0       0        0.0%
+ABS                  0      0      2E      12        0.0%
+DATA                 0      0      2E       3        0.0%
+CODE                 0      0       0       0        0.0%
+
+
+Microchip Technology PIC18 Macro Assembler V2.32 build 20210201212658 
+Symbol Table                                                                                   Sat Aug 27 11:48:50 2022
+
+                      _a 0010                        _b 000F                        _c 000E  
+                      _d 000D                        _i 000A                        _j 0009  
+                      _k 0008                        _l 0007                        _y 000C  
+                      _z 000B             lcd_char@temp 0014                       l81 14EA  
+                     l83 1500                       l91 1634                       l85 1502  
+                     l77 14BE                       l79 14D4                       l88 15F8  
+                     l97 1160                       u10 14B8                       u11 14B4  
+                     u20 14CE                       u21 14CA                       u30 14E4  
+                     u31 14E0                       u40 14FA                       u41 14F6  
+                    l101 1160                      l104 13E0                      l113 1556  
+                    l130 1616                      l131 1618                      l107 15C8  
+                    l142 14A6                      l135 141E                      l128 1608  
+                    l160 127C                      l137 142C                      l139 1448  
+                    l850 14CE                      l852 14D6                      l844 14AA  
+                    l860 15CC                      l932 15FC                      l854 14E4  
+                    l846 14B8                      l862 15CE                      l934 1600  
+                    l856 14EC                      l848 14C0                      l864 15DE  
+                    l936 1604                      l858 14FA                      l866 15E4  
+                    l938 1606                      l890 1628                      l868 15F6  
+                    l980 1370                      l990 13A0                      l982 1376  
+                    l992 13B0                      l984 1384                      l994 13B6  
+                    l986 138A                      l996 13BC                      l988 139A  
+                    l998 13C2                      u140 1616                      u141 1612  
+                    u400 1122                      u401 111E                      u420 1556  
+                    u340 102C                      u421 1552                      u341 1028  
+                    u430 141C                      u431 1418                      u415 113A  
+                    u440 142C                      u360 107E                      u441 1428  
+                    u505 1248                      u361 107A                      u506 124A  
+                    u450 11BE                      u451 11BA                      u355 1044  
+                    u460 11CE                      u380 10D0                      u461 11CA  
+                    u381 10CC                      u470 11E0                      u471 11DC  
+                    u375 1096                      u607 1320                      u480 11F2  
+                    u481 11EC                      u617 1338                      u537 1298  
+                    u490 11F4                      u707 11FC                      u395 10E8  
+                    u627 134A                      u547 12B4                      u717 120C  
+                    u637 135E                      u557 12C4                      u807 13A6  
+                    u727 1226                      u647 1498                      u567 12D8  
+                    u817 15D4                      u737 1236                      u657 15AE  
+                    u577 12EC                      u827 15EC                      u747 1250  
+                    u667 15C0                      u587 12FC                      u757 1260  
+                    u677 116C                      u597 1310                      u767 1272  
+                    u687 1184                      u777 143E                      u697 119C  
+                    u787 137C                      u797 1390    __size_of_status_check 011C  
+                    _lux 0006                      wreg 000FE8                     l1000 13C8  
+                   l1002 13CE                     l1004 13D4                     l1006 13DA  
+                   l1200 15C6                     l1210 106A                     l1202 101A  
+                   l1300 117E                     l1220 10D0                     l1212 107E  
+                   l1204 102C                     l1310 11BE                     l1302 1192  
+                   l1230 1150                     l1222 10FE                     l1214 10AC  
+                   l1206 105A                     l1320 1216                     l1312 11CE  
+                   l1304 11AA                     l1240 152E                     l1232 1156  
+                   l1224 1104                     l1216 10B2                     l1208 1060  
+                   l1400 1354                     l1250 13F2                     l1242 13E4  
+                   l1330 125A                     l1322 1220                     l1314 11E0  
+                   l1234 1504                     l1226 110E                     l1218 10BC  
+                   l1402 1358                     l1260 13FC                     l1252 13F4  
+                   l1244 13E8                     l1332 126A                     l1316 11F6  
+                   l1324 1230                     l1308 11B0                     l1236 150C  
+                   l1228 1122                     l1270 140A                     l1262 1400  
+                   l1254 13F6                     l1246 13EC                     l1334 126C  
+                   l1326 1240                     l1318 1206                     l1190 15AC  
+                   l1182 1592                     l1238 152C                     l1280 1438  
+                   l1272 140C                     l1264 1404                     l1256 13F8  
+                   l1248 13F0                     l1328 124A                     l1192 15B4  
+                   l1184 15A0                     l1360 128A                     l1274 140E  
+                   l1266 1406                     l1258 13FA                     l1194 15B6  
+                   l1186 15A2                     l1290 1482                     l1282 144A  
+                   l1370 12A2                     l1362 128C                     l1276 141C  
+                   l1268 1408                     l1196 15BC                     l1188 15AA  
+                   l1292 148E                     l1284 144E                     l1380 12D2  
+                   l1372 12A8                     l1364 128E                     l1294 1162  
+                   l1198 15BE                     l1286 1462                     l1390 130A  
+                   l1382 12E2                     l1374 12AE                     l1366 1290  
+                   l1358 127E                     l1296 1166                     l1288 146E  
+                   l1392 131A                     l1384 12E6                     l1376 12BE  
+                   l1368 1292                     l1298 1176                     l1394 132A  
+                   l1386 12F6                     l1378 12CE                     l1396 132E  
+                   l1388 1306                     l1398 1344                     STR_1 1001  
+                   STR_2 100D                     _main 127E                     fsr1l 000FE1  
+           lcd_line@temp 001B                     start 0000          __end_of_Lcd_Cmd 15FA  
+           ___param_bank 000000             _status_check 1162                    ?_main 0011  
+                  _EEADR 000FA9                    _PORTB 000F81                    _PORTC 000F82  
+                  _PORTD 000F83                    _TRISB 000F93                    _TRISC 000F94  
+                  _TRISD 000F95                    _relay 0005                    _saved 0029  
+                  tablat 000FF5             ?_memory_read 0011                    status 000FD8  
+       __end_of_Lcd_Port 1504           status_check@no 0016          __initialization 1558  
+           __end_of_main 1370                   ??_main 001F            __activetblptr 000001  
+                 _EEADRH 000FAA                   _EEDATA 000FA8                   _EECON2 000FA7  
+              ??_Lcd_Cmd 0012         __end_of_lcd_char 15CA         __end_of_lcd_data 1558  
+       __end_of_lcd_line 1162         __end_of_lcd_init 13E2                   clear_0 157E  
+                 isa$std 000001             __pdataCOMRAM 0021             __mediumconst 0000  
+                 tblptrh 000FF7                   tblptrl 000FF6                   tblptru 000FF8  
+          ?_memory_write 0011             ?_welcome_msg 0011               __accesstop 0060  
+__end_of__initialization 1584       memory_read@address 0011            ___rparam_used 000001  
+         __pcstackCOMRAM 0011           ??_memory_write 0012       __size_of_lcd_clear 000E  
+              ?_Lcd_Port 0011     __size_of_memory_read 0020               ??_Lcd_Port 0011  
+                _SSPCON2 000FC5                ?_lcd_char 0012                ?_lcd_data 0016  
+              ?_lcd_line 0014                ?_lcd_init 0011                  _SSPSTAT 000FC7  
+                _Lcd_Cmd 15CA                  __Hparam 0000                  __Lparam 0000  
+      __end_of_lcd_clear 1636             __psmallconst 1000                  __pcinit 1558  
+                __ramtop 1000                  __ptext0 127E                  __ptext1 144A  
+                __ptext2 101A                  __ptext3 1504                  __ptext4 1592  
+                __ptext5 1628                  __ptext6 1162                  __ptext7 13E2  
+                __ptext8 15FA                  __ptext9 1370                  _status1 0003  
+                _status2 0001               ??_lcd_char 0014               ??_lcd_data 0018  
+             ??_lcd_line 0018               ??_lcd_init 0014     end_of_initialization 1584  
+   __size_of_welcome_msg 005E     __end_of_memory_write 144A                  postdec1 000FE5  
+                postinc0 000FEE                Lcd_Port@a 0011                _PORTBbits 000F81  
+              _PORTCbits 000F82                _PORTDbits 000F83            __pidataCOMRAM 161A  
+    start_initialization 1558        __size_of_Lcd_Port 005C            ?_status_check 0011  
+            __pbssCOMRAM 0001      memory_write@address 0013                _backlight 002E  
+          ??_memory_read 0011        __size_of_lcd_char 0038        __size_of_lcd_data 0054  
+               ?_Lcd_Cmd 0011        __size_of_lcd_line 0148        __size_of_lcd_init 0072  
+  __size_of_memory_write 0068           ??_status_check 0014                _lcd_clear 1628  
+            __smallconst 1000             _memory_write 13E2         memory_write@data 0011  
+               _PIE2bits 000FA0                 Lcd_Cmd@a 0013                 _PIR2bits 000FA1  
+    __end_of_memory_read 161A               ?_lcd_clear 0011                lcd_char@a 0012  
+              lcd_data@a 0016                lcd_line@a 0014                lcd_line@b 0016  
+               _Lcd_Port 14A8                copy_data0 156C            ??_welcome_msg 001D  
+       __size_of_Lcd_Cmd 0030               _EECON1bits 000FA6                 __Hrparam 0000  
+               __Lrparam 0000             __Lsmallconst 1000                 __ptext10 15CA  
+               __ptext11 14A8     __end_of_status_check 127E                 _lcd_char 1592  
+               _lcd_data 1504                 _lcd_line 101A                 _lcd_init 1370  
+            _memory_read 15FA            __size_of_main 00F2      __end_of_welcome_msg 14A8  
+               isa$xinst 000000                 _settings 0021              ??_lcd_clear 0014  
+             _INTCONbits 000FF2              _welcome_msg 144A  

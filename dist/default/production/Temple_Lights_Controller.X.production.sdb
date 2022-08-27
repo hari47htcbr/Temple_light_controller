@@ -1,0 +1,441 @@
+[p GLOBOPT AUTOSTATIC IEEE_FLT IEEE_DBL LFSROK EMI_WORD ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 18F46K22 ]
+[d frameptr 4065 ]
+"199 C:\Users\hari4\Downloads\controller projects - git/Temple_Light_Controller/main.c
+[e E6223 set_bit `uc
+LOW 0
+HIGH 1
+]
+"8 C:\Users\hari4\Downloads\controller projects - git/Temple_Light_Controller/eeprom.h
+[v _memory_read memory_read `(uc  1 e 1 0 ]
+"18
+[v _memory_write memory_write `(v  1 e 1 0 ]
+"10 C:\Users\hari4\Downloads\controller projects - git/Temple_Light_Controller/functions.h
+[v _welcome_msg welcome_msg `(v  1 e 1 0 ]
+"46
+[v _status_check status_check `(v  1 e 1 0 ]
+"7 C:\Users\hari4\Downloads\controller projects - git/Temple_Light_Controller/lcd.h
+[v _Lcd_Port Lcd_Port `(v  1 e 1 0 ]
+"29
+[v _Lcd_Cmd Lcd_Cmd `(v  1 e 1 0 ]
+"38
+[v _lcd_clear lcd_clear `(v  1 e 1 0 ]
+"43
+[v _lcd_line lcd_line `(v  1 e 1 0 ]
+"79
+[v _lcd_init lcd_init `(v  1 e 1 0 ]
+"96
+[v _lcd_char lcd_char `(v  1 e 1 0 ]
+"111
+[v _lcd_data lcd_data `(v  1 e 1 0 ]
+"118
+[v _div4 div4 `(uc  1 e 1 0 ]
+"186 C:\Users\hari4\Downloads\controller projects - git/Temple_Light_Controller/main.c
+[v _main main `(v  1 e 1 0 ]
+"7 D:\Microchip\xc8\v2.32\pic\sources\c99\common\awdiv.c
+[v ___awdiv __awdiv `(i  1 e 2 0 ]
+"7 D:\Microchip\xc8\v2.32\pic\sources\c99\common\awmod.c
+[v ___awmod __awmod `(i  1 e 2 0 ]
+"4 D:\Microchip\xc8\v2.32\pic\sources\c99\common\fleq.c
+[v ___fleq __fleq `(b  1 e 0 0 ]
+"62 D:\Microchip\xc8\v2.32\pic\sources\c99\common\float.c
+[v ___ftpack __ftpack `(f  1 e 4 0 ]
+"86 D:\Microchip\xc8\v2.32\pic\sources\c99\common\ftadd.c
+[v ___ftadd __ftadd `(f  1 e 4 0 ]
+"54 D:\Microchip\xc8\v2.32\pic\sources\c99\common\ftdiv.c
+[v ___ftdiv __ftdiv `(f  1 e 4 0 ]
+"62 D:\Microchip\xc8\v2.32\pic\sources\c99\common\ftmul.c
+[v ___ftmul __ftmul `(f  1 e 4 0 ]
+"19 D:\Microchip\xc8\v2.32\pic\sources\c99\common\ftsub.c
+[v ___ftsub __ftsub `(f  1 e 4 0 ]
+"10 D:\Microchip\xc8\v2.32\pic\sources\c99\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"245
+[v ___flsub __flsub `(d  1 e 4 0 ]
+"11 D:\Microchip\xc8\v2.32\pic\sources\c99\common\sprcdiv.c
+[v ___fldiv __fldiv `(d  1 e 4 0 ]
+"8 D:\Microchip\xc8\v2.32\pic\sources\c99\common\sprcmul.c
+[v ___flmul __flmul `(d  1 e 4 0 ]
+"15 D:\Microchip\xc8\v2.32\pic\sources\c99\common\Umul32.c
+[v ___lmul __lmul `(ul  1 e 4 0 ]
+"91 D:\Microchip\xc8\v2.32\pic\sources\c99\common\Umul64.c
+[v ___omul __omul `(uo  1 e 8 0 ]
+"10 D:\Microchip\xc8\v2.32\pic\sources\c99\common\xxtofl.c
+[v ___xxtofl __xxtofl `(d  1 e 4 0 ]
+"155 C:\Users\hari4\Downloads\controller projects - git/Temple_Light_Controller/main.c
+[v _a a `uc  1 e 1 0 ]
+[v _b b `uc  1 e 1 0 ]
+[v _c c `uc  1 e 1 0 ]
+[v _d d `uc  1 e 1 0 ]
+[v _y y `uc  1 e 1 0 ]
+[v _z z `uc  1 e 1 0 ]
+[v _i i `uc  1 e 1 0 ]
+"165
+[v _status1 status1 `i  1 e 2 0 ]
+[v _status2 status2 `i  1 e 2 0 ]
+"167
+[v _backlight backlight `uc  1 e 1 0 ]
+"6566 C:/Users/hari4/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h
+[v _PORTB PORTB `VEuc  1 e 1 @3969 ]
+[s S24 . 1 `uc 1 RB0 1 0 :1:0 
+`uc 1 RB1 1 0 :1:1 
+`uc 1 RB2 1 0 :1:2 
+`uc 1 RB3 1 0 :1:3 
+`uc 1 RB4 1 0 :1:4 
+`uc 1 RB5 1 0 :1:5 
+`uc 1 RB6 1 0 :1:6 
+`uc 1 RB7 1 0 :1:7 
+]
+"6636
+[s S33 . 1 `uc 1 INT0 1 0 :1:0 
+`uc 1 INT1 1 0 :1:1 
+`uc 1 INT2 1 0 :1:2 
+`uc 1 CCP2 1 0 :1:3 
+`uc 1 KBI0 1 0 :1:4 
+`uc 1 KBI1 1 0 :1:5 
+`uc 1 KBI2 1 0 :1:6 
+`uc 1 KBI3 1 0 :1:7 
+]
+[s S42 . 1 `uc 1 AN12 1 0 :1:0 
+`uc 1 AN10 1 0 :1:1 
+`uc 1 AN8 1 0 :1:2 
+`uc 1 AN9 1 0 :1:3 
+`uc 1 AN11 1 0 :1:4 
+`uc 1 AN13 1 0 :1:5 
+`uc 1 PGC 1 0 :1:6 
+`uc 1 PGD 1 0 :1:7 
+]
+[s S51 . 1 `uc 1 FLT0 1 0 :1:0 
+`uc 1 C12IN3M 1 0 :1:1 
+`uc 1 . 1 0 :1:2 
+`uc 1 C12IN2M 1 0 :1:3 
+`uc 1 T5G 1 0 :1:4 
+`uc 1 T1G 1 0 :1:5 
+]
+[s S58 . 1 `uc 1 SRI 1 0 :1:0 
+`uc 1 C12IN3N 1 0 :1:1 
+`uc 1 . 1 0 :1:2 
+`uc 1 C12IN2N 1 0 :1:3 
+`uc 1 . 1 0 :1:4 
+`uc 1 CCP3 1 0 :1:5 
+]
+[s S65 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 CTED1 1 0 :1:2 
+`uc 1 CTED2 1 0 :1:3 
+`uc 1 . 1 0 :1:4 
+`uc 1 T3CKI 1 0 :1:5 
+]
+[s S71 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 P2A 1 0 :1:3 
+`uc 1 . 1 0 :1:4 
+`uc 1 P3A 1 0 :1:5 
+]
+[s S76 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 CCP2_PA2 1 0 :1:3 
+]
+[u S79 . 1 `S24 1 . 1 0 `S33 1 . 1 0 `S42 1 . 1 0 `S51 1 . 1 0 `S58 1 . 1 0 `S65 1 . 1 0 `S71 1 . 1 0 `S76 1 . 1 0 ]
+[v _PORTBbits PORTBbits `VES79  1 e 1 @3969 ]
+"6836
+[v _PORTC PORTC `VEuc  1 e 1 @3970 ]
+[s S305 . 1 `uc 1 RC0 1 0 :1:0 
+`uc 1 RC1 1 0 :1:1 
+`uc 1 RC2 1 0 :1:2 
+`uc 1 RC3 1 0 :1:3 
+`uc 1 RC4 1 0 :1:4 
+`uc 1 RC5 1 0 :1:5 
+`uc 1 RC6 1 0 :1:6 
+`uc 1 RC7 1 0 :1:7 
+]
+"6908
+[s S314 . 1 `uc 1 T1OSO 1 0 :1:0 
+`uc 1 T1OSI 1 0 :1:1 
+`uc 1 T5CKI 1 0 :1:2 
+`uc 1 SCK 1 0 :1:3 
+`uc 1 SDI 1 0 :1:4 
+`uc 1 SDO 1 0 :1:5 
+`uc 1 TX 1 0 :1:6 
+`uc 1 RX 1 0 :1:7 
+]
+[s S323 . 1 `uc 1 P2B 1 0 :1:0 
+`uc 1 P2A 1 0 :1:1 
+`uc 1 P1A 1 0 :1:2 
+`uc 1 SCL 1 0 :1:3 
+`uc 1 SDA 1 0 :1:4 
+`uc 1 . 1 0 :1:5 
+`uc 1 CK 1 0 :1:6 
+`uc 1 DT 1 0 :1:7 
+]
+[s S332 . 1 `uc 1 T1CKI 1 0 :1:0 
+`uc 1 CCP2 1 0 :1:1 
+`uc 1 CCP1 1 0 :1:2 
+`uc 1 SCK1 1 0 :1:3 
+`uc 1 SDI1 1 0 :1:4 
+`uc 1 SDO1 1 0 :1:5 
+`uc 1 TX1 1 0 :1:6 
+`uc 1 RX1 1 0 :1:7 
+]
+[s S341 . 1 `uc 1 T3CKI 1 0 :1:0 
+`uc 1 . 1 0 :1:1 
+`uc 1 CTPLS 1 0 :1:2 
+`uc 1 SCL1 1 0 :1:3 
+`uc 1 SDA1 1 0 :1:4 
+`uc 1 . 1 0 :1:5 
+`uc 1 CK1 1 0 :1:6 
+`uc 1 DT1 1 0 :1:7 
+]
+[s S350 . 1 `uc 1 T3G 1 0 :1:0 
+`uc 1 . 1 0 :1:1 
+`uc 1 AN14 1 0 :1:2 
+`uc 1 AN15 1 0 :1:3 
+`uc 1 AN16 1 0 :1:4 
+`uc 1 AN17 1 0 :1:5 
+`uc 1 AN18 1 0 :1:6 
+`uc 1 AN19 1 0 :1:7 
+]
+[s S359 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 PA2 1 0 :1:1 
+`uc 1 PA1 1 0 :1:2 
+]
+[u S363 . 1 `S305 1 . 1 0 `S314 1 . 1 0 `S323 1 . 1 0 `S332 1 . 1 0 `S341 1 . 1 0 `S350 1 . 1 0 `S359 1 . 1 0 ]
+[v _PORTCbits PORTCbits `VES363  1 e 1 @3970 ]
+"7143
+[v _PORTD PORTD `VEuc  1 e 1 @3971 ]
+[s S430 . 1 `uc 1 RD0 1 0 :1:0 
+`uc 1 RD1 1 0 :1:1 
+`uc 1 RD2 1 0 :1:2 
+`uc 1 RD3 1 0 :1:3 
+`uc 1 RD4 1 0 :1:4 
+`uc 1 RD5 1 0 :1:5 
+`uc 1 RD6 1 0 :1:6 
+`uc 1 RD7 1 0 :1:7 
+]
+"7206
+[s S439 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 P2B 1 0 :1:2 
+`uc 1 P2C 1 0 :1:3 
+`uc 1 P2D 1 0 :1:4 
+`uc 1 P1B 1 0 :1:5 
+`uc 1 P1C 1 0 :1:6 
+`uc 1 P1D 1 0 :1:7 
+]
+[s S447 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 CCP4 1 0 :1:1 
+`uc 1 . 1 0 :4:2 
+`uc 1 TX2 1 0 :1:6 
+`uc 1 RX2 1 0 :1:7 
+]
+[s S453 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 NOT_SS2 1 0 :1:3 
+]
+[s S456 . 1 `uc 1 SCK2 1 0 :1:0 
+`uc 1 SDI2 1 0 :1:1 
+`uc 1 . 1 0 :1:2 
+`uc 1 nSS2 1 0 :1:3 
+`uc 1 SDO2 1 0 :1:4 
+`uc 1 . 1 0 :1:5 
+`uc 1 CK2 1 0 :1:6 
+`uc 1 DT2 1 0 :1:7 
+]
+[s S465 . 1 `uc 1 SCL2 1 0 :1:0 
+`uc 1 SDA2 1 0 :1:1 
+`uc 1 . 1 0 :1:2 
+`uc 1 SS2 1 0 :1:3 
+]
+[s S470 . 1 `uc 1 AN20 1 0 :1:0 
+`uc 1 AN21 1 0 :1:1 
+`uc 1 AN22 1 0 :1:2 
+`uc 1 AN23 1 0 :1:3 
+`uc 1 AN24 1 0 :1:4 
+`uc 1 AN25 1 0 :1:5 
+`uc 1 AN26 1 0 :1:6 
+`uc 1 AN27 1 0 :1:7 
+]
+[u S479 . 1 `S430 1 . 1 0 `S439 1 . 1 0 `S447 1 . 1 0 `S453 1 . 1 0 `S456 1 . 1 0 `S465 1 . 1 0 `S470 1 . 1 0 ]
+[v _PORTDbits PORTDbits `VES479  1 e 1 @3971 ]
+"8283
+[v _TRISB TRISB `VEuc  1 e 1 @3987 ]
+"8505
+[v _TRISC TRISC `VEuc  1 e 1 @3988 ]
+"8727
+[v _TRISD TRISD `VEuc  1 e 1 @3989 ]
+[s S230 . 1 `uc 1 CCP2IE 1 0 :1:0 
+`uc 1 TMR3IE 1 0 :1:1 
+`uc 1 HLVDIE 1 0 :1:2 
+`uc 1 BCL1IE 1 0 :1:3 
+`uc 1 EEIE 1 0 :1:4 
+`uc 1 C2IE 1 0 :1:5 
+`uc 1 C1IE 1 0 :1:6 
+`uc 1 OSCFIE 1 0 :1:7 
+]
+"9672
+[s S239 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 LVDIE 1 0 :1:2 
+`uc 1 BCLIE 1 0 :1:3 
+]
+[s S243 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 CMIE 1 0 :1:6 
+]
+[u S246 . 1 `S230 1 . 1 0 `S239 1 . 1 0 `S243 1 . 1 0 ]
+[v _PIE2bits PIE2bits `VES246  1 e 1 @4000 ]
+[s S268 . 1 `uc 1 CCP2IF 1 0 :1:0 
+`uc 1 TMR3IF 1 0 :1:1 
+`uc 1 HLVDIF 1 0 :1:2 
+`uc 1 BCL1IF 1 0 :1:3 
+`uc 1 EEIF 1 0 :1:4 
+`uc 1 C2IF 1 0 :1:5 
+`uc 1 C1IF 1 0 :1:6 
+`uc 1 OSCFIF 1 0 :1:7 
+]
+"9758
+[s S277 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 LVDIF 1 0 :1:2 
+`uc 1 BCLIF 1 0 :1:3 
+]
+[s S281 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 CMIF 1 0 :1:6 
+]
+[u S284 . 1 `S268 1 . 1 0 `S277 1 . 1 0 `S281 1 . 1 0 ]
+[v _PIR2bits PIR2bits `VES284  1 e 1 @4001 ]
+[s S152 . 1 `uc 1 RD 1 0 :1:0 
+`uc 1 WR 1 0 :1:1 
+`uc 1 WREN 1 0 :1:2 
+`uc 1 WRERR 1 0 :1:3 
+`uc 1 FREE 1 0 :1:4 
+`uc 1 . 1 0 :1:5 
+`uc 1 CFGS 1 0 :1:6 
+`uc 1 EEPGD 1 0 :1:7 
+]
+"10191
+[s S161 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 EEFS 1 0 :1:6 
+]
+[u S164 . 1 `S152 1 . 1 0 `S161 1 . 1 0 ]
+[v _EECON1bits EECON1bits `VES164  1 e 1 @4006 ]
+"10236
+[v _EECON2 EECON2 `VEuc  1 e 1 @4007 ]
+"10256
+[v _EEDATA EEDATA `VEuc  1 e 1 @4008 ]
+"10276
+[v _EEADR EEADR `VEuc  1 e 1 @4009 ]
+"10346
+[v _EEADRH EEADRH `VEuc  1 e 1 @4010 ]
+"13789
+[v _SSPCON2 SSPCON2 `VEuc  1 e 1 @4037 ]
+"14381
+[v _SSPSTAT SSPSTAT `VEuc  1 e 1 @4039 ]
+[s S181 . 1 `uc 1 RBIF 1 0 :1:0 
+`uc 1 INT0IF 1 0 :1:1 
+`uc 1 TMR0IF 1 0 :1:2 
+`uc 1 RBIE 1 0 :1:3 
+`uc 1 INT0IE 1 0 :1:4 
+`uc 1 TMR0IE 1 0 :1:5 
+`uc 1 PEIE_GIEL 1 0 :1:6 
+`uc 1 GIE_GIEH 1 0 :1:7 
+]
+"16959
+[s S190 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 INT0F 1 0 :1:1 
+`uc 1 T0IF 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 INT0E 1 0 :1:4 
+`uc 1 T0IE 1 0 :1:5 
+`uc 1 PEIE 1 0 :1:6 
+`uc 1 GIE 1 0 :1:7 
+]
+[s S199 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 GIEL 1 0 :1:6 
+`uc 1 GIEH 1 0 :1:7 
+]
+[u S203 . 1 `S181 1 . 1 0 `S190 1 . 1 0 `S199 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES203  1 e 1 @4082 ]
+"186 C:\Users\hari4\Downloads\controller projects - git/Temple_Light_Controller/main.c
+[v _main main `(v  1 e 1 0 ]
+{
+"232
+} 0
+"10 C:\Users\hari4\Downloads\controller projects - git/Temple_Light_Controller/functions.h
+[v _welcome_msg welcome_msg `(v  1 e 1 0 ]
+{
+"18
+} 0
+"43 C:\Users\hari4\Downloads\controller projects - git/Temple_Light_Controller/lcd.h
+[v _lcd_line lcd_line `(v  1 e 1 0 ]
+{
+"45
+[v lcd_line@temp temp `i  1 a 2 10 ]
+"43
+[v lcd_line@a a `ui  1 p 2 3 ]
+[v lcd_line@b b `i  1 p 2 5 ]
+"78
+} 0
+"111
+[v _lcd_data lcd_data `(v  1 e 1 0 ]
+{
+[v lcd_data@a a `*.32Cuc  1 p 2 5 ]
+"115
+} 0
+"96
+[v _lcd_char lcd_char `(v  1 e 1 0 ]
+{
+"98
+[v lcd_char@temp temp `ui  1 a 2 3 ]
+"96
+[v lcd_char@a a `ui  1 p 2 1 ]
+"110
+} 0
+"38
+[v _lcd_clear lcd_clear `(v  1 e 1 0 ]
+{
+"42
+} 0
+"46 C:\Users\hari4\Downloads\controller projects - git/Temple_Light_Controller/functions.h
+[v _status_check status_check `(v  1 e 1 0 ]
+{
+"48
+[v status_check@no no `uc  1 a 1 5 ]
+"81
+} 0
+"18 C:\Users\hari4\Downloads\controller projects - git/Temple_Light_Controller/eeprom.h
+[v _memory_write memory_write `(v  1 e 1 0 ]
+{
+[v memory_write@address address `uc  1 a 1 wreg ]
+[v memory_write@address address `uc  1 a 1 wreg ]
+[v memory_write@data data `uc  1 p 1 0 ]
+"20
+[v memory_write@address address `uc  1 a 1 2 ]
+"53
+} 0
+"8
+[v _memory_read memory_read `(uc  1 e 1 0 ]
+{
+[v memory_read@address address `uc  1 a 1 wreg ]
+[v memory_read@address address `uc  1 a 1 wreg ]
+"10
+[v memory_read@address address `uc  1 a 1 0 ]
+"16
+} 0
+"79 C:\Users\hari4\Downloads\controller projects - git/Temple_Light_Controller/lcd.h
+[v _lcd_init lcd_init `(v  1 e 1 0 ]
+{
+"95
+} 0
+"29
+[v _Lcd_Cmd Lcd_Cmd `(v  1 e 1 0 ]
+{
+[v Lcd_Cmd@a a `uc  1 a 1 wreg ]
+[v Lcd_Cmd@a a `uc  1 a 1 wreg ]
+"31
+[v Lcd_Cmd@a a `uc  1 a 1 2 ]
+"37
+} 0
+"7
+[v _Lcd_Port Lcd_Port `(v  1 e 1 0 ]
+{
+[v Lcd_Port@a a `uc  1 a 1 wreg ]
+[v Lcd_Port@a a `uc  1 a 1 wreg ]
+"9
+[v Lcd_Port@a a `uc  1 a 1 0 ]
+"28
+} 0
