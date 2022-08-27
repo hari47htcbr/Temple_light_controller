@@ -10,7 +10,7 @@ HEX File Usage Map:
   T = Trailing code
   & = Find & replace opcode
   X = Find & delete opcode
-  1 = dist/default/production\Temple_Lights_Controller.X.production.hex
+  1 = dist/default/production\Temple_light_controller.X.production.hex
 00000000: 1111------------------------------------------------------------
 00001000: 1111111111111111111111111-11111111111111111111111111111111111111
 00001040: 1111111111111111111111111111111111111111111111111111111111111111

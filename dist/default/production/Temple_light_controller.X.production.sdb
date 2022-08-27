@@ -3,20 +3,25 @@
 [d edition pro ]
 [d chip 18F46K22 ]
 [d frameptr 4065 ]
-"199 C:\Users\hari4\Downloads\controller projects - git/Temple_Light_Controller/main.c
-[e E6223 set_bit `uc
+"6 C:\Users\hari4\Downloads\controller projects - git\Temple_light_controller.X/enums.h
+[e E6220 set_state `uc
+ON 0
+OFF 1
+]
+"12
+[e E6224 bit_set `uc
 LOW 0
 HIGH 1
 ]
-"8 C:\Users\hari4\Downloads\controller projects - git/Temple_Light_Controller/eeprom.h
+"8 C:\Users\hari4\Downloads\controller projects - git\Temple_light_controller.X/eeprom.h
 [v _memory_read memory_read `(uc  1 e 1 0 ]
 "18
 [v _memory_write memory_write `(v  1 e 1 0 ]
-"10 C:\Users\hari4\Downloads\controller projects - git/Temple_Light_Controller/functions.h
+"10 C:\Users\hari4\Downloads\controller projects - git\Temple_light_controller.X/functions.h
 [v _welcome_msg welcome_msg `(v  1 e 1 0 ]
-"46
+"47
 [v _status_check status_check `(v  1 e 1 0 ]
-"7 C:\Users\hari4\Downloads\controller projects - git/Temple_Light_Controller/lcd.h
+"7 C:\Users\hari4\Downloads\controller projects - git\Temple_light_controller.X/lcd.h
 [v _Lcd_Port Lcd_Port `(v  1 e 1 0 ]
 "29
 [v _Lcd_Cmd Lcd_Cmd `(v  1 e 1 0 ]
@@ -32,8 +37,6 @@ HIGH 1
 [v _lcd_data lcd_data `(v  1 e 1 0 ]
 "118
 [v _div4 div4 `(uc  1 e 1 0 ]
-"186 C:\Users\hari4\Downloads\controller projects - git/Temple_Light_Controller/main.c
-[v _main main `(v  1 e 1 0 ]
 "7 D:\Microchip\xc8\v2.32\pic\sources\c99\common\awdiv.c
 [v ___awdiv __awdiv `(i  1 e 2 0 ]
 "7 D:\Microchip\xc8\v2.32\pic\sources\c99\common\awmod.c
@@ -64,19 +67,8 @@ HIGH 1
 [v ___omul __omul `(uo  1 e 8 0 ]
 "10 D:\Microchip\xc8\v2.32\pic\sources\c99\common\xxtofl.c
 [v ___xxtofl __xxtofl `(d  1 e 4 0 ]
-"155 C:\Users\hari4\Downloads\controller projects - git/Temple_Light_Controller/main.c
-[v _a a `uc  1 e 1 0 ]
-[v _b b `uc  1 e 1 0 ]
-[v _c c `uc  1 e 1 0 ]
-[v _d d `uc  1 e 1 0 ]
-[v _y y `uc  1 e 1 0 ]
-[v _z z `uc  1 e 1 0 ]
-[v _i i `uc  1 e 1 0 ]
-"165
-[v _status1 status1 `i  1 e 2 0 ]
-[v _status2 status2 `i  1 e 2 0 ]
-"167
-[v _backlight backlight `uc  1 e 1 0 ]
+"174 C:\Users\hari4\Downloads\controller projects - git\Temple_light_controller.X\main.c
+[v _main main `(v  1 e 1 0 ]
 "6566 C:/Users/hari4/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h
 [v _PORTB PORTB `VEuc  1 e 1 @3969 ]
 [s S24 . 1 `uc 1 RB0 1 0 :1:0 
@@ -350,21 +342,34 @@ HIGH 1
 ]
 [u S203 . 1 `S181 1 . 1 0 `S190 1 . 1 0 `S199 1 . 1 0 ]
 [v _INTCONbits INTCONbits `VES203  1 e 1 @4082 ]
-"186 C:\Users\hari4\Downloads\controller projects - git/Temple_Light_Controller/main.c
+"143 C:\Users\hari4\Downloads\controller projects - git\Temple_light_controller.X\main.c
+[v _a a `uc  1 e 1 0 ]
+[v _b b `uc  1 e 1 0 ]
+[v _c c `uc  1 e 1 0 ]
+[v _d d `uc  1 e 1 0 ]
+[v _y y `uc  1 e 1 0 ]
+[v _z z `uc  1 e 1 0 ]
+[v _i i `uc  1 e 1 0 ]
+"153
+[v _status1 status1 `i  1 e 2 0 ]
+[v _status2 status2 `i  1 e 2 0 ]
+"155
+[v _backlight backlight `uc  1 e 1 0 ]
+"174
 [v _main main `(v  1 e 1 0 ]
 {
-"232
+"223
 } 0
-"10 C:\Users\hari4\Downloads\controller projects - git/Temple_Light_Controller/functions.h
+"10 C:\Users\hari4\Downloads\controller projects - git\Temple_light_controller.X/functions.h
 [v _welcome_msg welcome_msg `(v  1 e 1 0 ]
 {
 "18
 } 0
-"43 C:\Users\hari4\Downloads\controller projects - git/Temple_Light_Controller/lcd.h
+"43 C:\Users\hari4\Downloads\controller projects - git\Temple_light_controller.X/lcd.h
 [v _lcd_line lcd_line `(v  1 e 1 0 ]
 {
 "45
-[v lcd_line@temp temp `i  1 a 2 10 ]
+[v lcd_line@temp temp `ui  1 a 2 10 ]
 "43
 [v lcd_line@a a `ui  1 p 2 3 ]
 [v lcd_line@b b `i  1 p 2 5 ]
@@ -390,14 +395,14 @@ HIGH 1
 {
 "42
 } 0
-"46 C:\Users\hari4\Downloads\controller projects - git/Temple_Light_Controller/functions.h
+"47 C:\Users\hari4\Downloads\controller projects - git\Temple_light_controller.X/functions.h
 [v _status_check status_check `(v  1 e 1 0 ]
 {
-"48
+"49
 [v status_check@no no `uc  1 a 1 5 ]
-"81
+"83
 } 0
-"18 C:\Users\hari4\Downloads\controller projects - git/Temple_Light_Controller/eeprom.h
+"18 C:\Users\hari4\Downloads\controller projects - git\Temple_light_controller.X/eeprom.h
 [v _memory_write memory_write `(v  1 e 1 0 ]
 {
 [v memory_write@address address `uc  1 a 1 wreg ]
@@ -416,7 +421,7 @@ HIGH 1
 [v memory_read@address address `uc  1 a 1 0 ]
 "16
 } 0
-"79 C:\Users\hari4\Downloads\controller projects - git/Temple_Light_Controller/lcd.h
+"79 C:\Users\hari4\Downloads\controller projects - git\Temple_light_controller.X/lcd.h
 [v _lcd_init lcd_init `(v  1 e 1 0 ]
 {
 "95

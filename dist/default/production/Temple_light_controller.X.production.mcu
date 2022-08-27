@@ -8,7 +8,7 @@ Program space:
     MEDIUMCONST          used     0h (     0) of  F000h bytes   (  0.0%)
 
 Data space:
-    COMRAM               used    2Eh (    46) of    5Fh bytes   ( 48.4%)
+    COMRAM               used    30h (    48) of    5Fh bytes   ( 50.5%)
     ABS1                 used     0h (     0) of   F38h bytes   (  0.0%)
     BIGRAM               used     0h (     0) of   F37h bytes   (  0.0%)
     RAM                  used     0h (     0) of   ED8h bytes   (  0.0%)

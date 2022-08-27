@@ -3,11 +3,11 @@ Microchip MPLAB XC8 Compiler V2.32
 Linker command line:
 
 -W-3 --edf=D:\Microchip\xc8\v2.32\pic\dat\en_msgs.txt -cn \
-  -h+dist/default/production\Temple_Lights_Controller.X.production.sym \
-  --cmf=dist/default/production\Temple_Lights_Controller.X.production.cmf \
-  -z -Q18F46K22 -oC:\Users\hari4\AppData\Local\Temp\xcAsgm8.4 \
+  -h+dist/default/production\Temple_light_controller.X.production.sym \
+  --cmf=dist/default/production\Temple_light_controller.X.production.cmf -z \
+  -Q18F46K22 -oC:\Users\hari4\AppData\Local\Temp\xcAsa4k.4 \
   --defsym=__MPLAB_BUILD=1 \
-  -Mdist/default/production/Temple_Lights_Controller.X.production.map -E1 \
+  -Mdist/default/production/Temple_light_controller.X.production.map -E1 \
   -ver=XC8 Compiler --acfsm=1493 -ASTACK=060h-0F37h -pstack=STACK \
   -ACODE=00h-0FFFFh -ACONST=00h-0FFFFh -ASMALLCONST=01000h-010FFhx240 \
   -AMEDIUMCONST=01000h-0FFFFh -ACOMRAM=01h-05Fh -AABS1=00h-0F37h \
@@ -27,8 +27,8 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  C:\Users\hari4\AppData\Local\Temp\xcAsgm8.o \
-  dist/default/production\Temple_Lights_Controller.X.production.o 
+  C:\Users\hari4\AppData\Local\Temp\xcAsa4k.o \
+  dist/default/production\Temple_light_controller.X.production.o 
 
 Object code version is 3.11
 
@@ -37,11 +37,11 @@ Machine type is 18F46K22
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\hari4\AppData\Local\Temp\xcAsgm8.o
+C:\Users\hari4\AppData\Local\Temp\xcAsa4k.o
                 idloc                            200000   200000        8        0       5
                 config                           300000   300000        E        0       4
                 init                                  0        0        4        0       0
-dist/default/production\Temple_Lights_Controller.X.production.o
+dist/default/production\Temple_light_controller.X.production.o
                 idloc                            200000   200000        8        0       5
                 config                           300000   300000        E        0       4
                 smallconst                         1000     1000       1A      800       0
@@ -57,9 +57,9 @@ dist/default/production\Temple_Lights_Controller.X.production.o
                 text2                              101A     101A      148      80D       0
                 text1                              144A     144A       5E      80D       0
                 text0                              127E     127E       F2      80D       0
-                cstackCOMRAM                         11       11       10        1       1
-                dataCOMRAM                           21       21        E        1       1
-                bssCOMRAM                             1        1       10        1       1
+                cstackCOMRAM                         13       13       10        1       1
+                dataCOMRAM                           23       23        E        1       1
+                bssCOMRAM                             1        1       12        1       1
                 cinit                              1558     1558       3A      80D       0
                 idataCOMRAM                        161A     161A        E      80D       0
 
@@ -91,9 +91,9 @@ TOTAL           Name                               Link     Load   Length     Sp
         CLASS   MEDIUMCONST    
 
         CLASS   COMRAM         
-                cstackCOMRAM                         11       11       10         1
-                dataCOMRAM                           21       21        E         1
-                bssCOMRAM                             1        1       10         1
+                cstackCOMRAM                         13       13       10         1
+                dataCOMRAM                           23       23        E         1
+                bssCOMRAM                             1        1       12         1
 
         CLASS   ABS1           
 
@@ -150,7 +150,7 @@ TOTAL           Name                               Link     Load   Length     Sp
 SEGMENTS        Name                           Load    Length   Top    Selector   Space  Class
 
                 reset_vec                      000000  000004  000004         0       0  CODE    
-                bssCOMRAM                      000001  00002E  00002F         1       1  COMRAM  
+                bssCOMRAM                      000001  000030  000031         1       1  COMRAM  
                 smallconst                     001000  00001A  00101A       800       0  SMALLCON
                 text2                          00101A  00061C  001636       80D       0  CODE    
 
@@ -174,10 +174,10 @@ UNUSED ADDRESS RANGES
         BANK7            000700-0007FF              100
         BANK8            000800-0008FF              100
         BANK9            000900-0009FF              100
-        BIGRAM           00002F-000F37              F09
+        BIGRAM           000031-000F37              F07
         CODE             000004-000FFF              FFC
                          001636-00FFFF             E9CA
-        COMRAM           00002F-00005F               31
+        COMRAM           000031-00005F               2F
         CONST            000004-000FFF              FFC
                          001636-00FFFF             E9CA
         EEDATA           F00000-F003FF              400
@@ -189,8 +189,8 @@ UNUSED ADDRESS RANGES
 
                                   Symbol Table
 
-Lcd_Cmd@a                cstackCOMRAM 000013
-Lcd_Port@a               cstackCOMRAM 000011
+Lcd_Cmd@a                cstackCOMRAM 000015
+Lcd_Port@a               cstackCOMRAM 000013
 _EEADR                   (abs)        000FA9
 _EEADRH                  (abs)        000FAA
 _EECON1bits              (abs)        000FA6
@@ -275,7 +275,7 @@ __Hrparam                rparam       000000
 __Hsfr                   sfr          000000
 __Hsmallconst            smallconst   00101A
 __Hspace_0               (abs)        001636
-__Hspace_1               (abs)        00002F
+__Hspace_1               (abs)        000031
 __Hspace_2               (abs)        000000
 __Hspace_4               (abs)        60000E
 __Hstack                 stack        000000
@@ -377,7 +377,7 @@ __Ltext7                 text7        000000
 __Ltext8                 text8        000000
 __Ltext9                 text9        000000
 __S0                     (abs)        001636
-__S1                     (abs)        00002F
+__S1                     (abs)        000031
 __S2                     (abs)        000000
 __S4                     (abs)        000000
 __S5                     (abs)        000000
@@ -405,8 +405,8 @@ __initialization         cinit        001558
 __mediumconst            mediumconst  000000
 __pbssCOMRAM             bssCOMRAM    000001
 __pcinit                 cinit        001558
-__pcstackCOMRAM          cstackCOMRAM 000011
-__pdataCOMRAM            dataCOMRAM   000021
+__pcstackCOMRAM          cstackCOMRAM 000013
+__pdataCOMRAM            dataCOMRAM   000023
 __pidataCOMRAM           idataCOMRAM  00161A
 __psmallconst            smallconst   001000
 __ptext0                 text0        00127E
@@ -435,33 +435,35 @@ __size_of_memory_write   (abs)        000000
 __size_of_status_check   (abs)        000000
 __size_of_welcome_msg    (abs)        000000
 __smallconst             smallconst   001000
-_a                       bssCOMRAM    000010
-_b                       bssCOMRAM    00000F
-_backlight               dataCOMRAM   00002E
-_c                       bssCOMRAM    00000E
-_d                       bssCOMRAM    00000D
-_i                       bssCOMRAM    00000A
-_j                       bssCOMRAM    000009
-_k                       bssCOMRAM    000008
-_l                       bssCOMRAM    000007
+_a                       bssCOMRAM    000012
+_b                       bssCOMRAM    000011
+_backlight               dataCOMRAM   000030
+_c                       bssCOMRAM    000010
+_d                       bssCOMRAM    00000F
+_i                       bssCOMRAM    00000C
+_j                       bssCOMRAM    00000B
+_k                       bssCOMRAM    00000A
+_l                       bssCOMRAM    000009
 _lcd_char                text4        001592
 _lcd_clear               text5        001628
 _lcd_data                text3        001504
 _lcd_init                text9        001370
 _lcd_line                text2        00101A
-_lux                     bssCOMRAM    000006
+_lux                     bssCOMRAM    000008
 _main                    text0        00127E
 _memory_read             text8        0015FA
 _memory_write            text7        0013E2
-_relay                   bssCOMRAM    000005
-_saved                   dataCOMRAM   000029
-_settings                dataCOMRAM   000021
+_relay                   bssCOMRAM    000007
+_saved                   dataCOMRAM   00002B
+_set_bit                 bssCOMRAM    000005
+_set_state               bssCOMRAM    000006
+_settings                dataCOMRAM   000023
 _status1                 bssCOMRAM    000003
 _status2                 bssCOMRAM    000001
 _status_check            text6        001162
 _welcome_msg             text1        00144A
-_y                       bssCOMRAM    00000C
-_z                       bssCOMRAM    00000B
+_y                       bssCOMRAM    00000E
+_z                       bssCOMRAM    00000D
 end_of_initialization    cinit        001584
 intlevel0                text         000000
 intlevel1                text         000000
@@ -469,32 +471,26 @@ intlevel2                text         000000
 intlevel3                text         000000
 isa$std                  (abs)        000001
 isa$xinst                (abs)        000000
-lcd_char@a               cstackCOMRAM 000012
-lcd_char@temp            cstackCOMRAM 000014
-lcd_data@a               cstackCOMRAM 000016
-lcd_line@a               cstackCOMRAM 000014
-lcd_line@b               cstackCOMRAM 000016
-lcd_line@temp            cstackCOMRAM 00001B
-memory_read@address      cstackCOMRAM 000011
-memory_write@address     cstackCOMRAM 000013
-memory_write@data        cstackCOMRAM 000011
+lcd_char@a               cstackCOMRAM 000014
+lcd_char@temp            cstackCOMRAM 000016
+lcd_data@a               cstackCOMRAM 000018
+lcd_line@a               cstackCOMRAM 000016
+lcd_line@b               cstackCOMRAM 000018
+lcd_line@temp            cstackCOMRAM 00001D
+memory_read@address      cstackCOMRAM 000013
+memory_write@address     cstackCOMRAM 000015
+memory_write@data        cstackCOMRAM 000013
 stackhi                  (abs)        000F37
 stacklo                  (abs)        000060
 start                    init         000000
 start_initialization     cinit        001558
-status_check@no          cstackCOMRAM 000016
+status_check@no          cstackCOMRAM 000018
 
 
 MODULE INFORMATION
 
 Module		Function		Class		Link	Load	Size
-../Temple_Light_Controller/functions.h
-		_status_check  		CODE           	1162	0000	284
-		_welcome_msg   		CODE           	144A	0000	94
-
-../Temple_Light_Controller/functions.h estimated size: 378
-
-../Temple_Light_Controller/lcd.h
+./lcd.h
 		_lcd_data      		CODE           	1504	0000	84
 		_lcd_line      		CODE           	101A	0000	328
 		_Lcd_Cmd       		CODE           	15CA	0000	48
@@ -503,21 +499,27 @@ Module		Function		Class		Link	Load	Size
 		_Lcd_Port      		CODE           	14A8	0000	92
 		_lcd_init      		CODE           	1370	0000	114
 
-../Temple_Light_Controller/lcd.h estimated size: 736
+./lcd.h estimated size: 736
 
-../Temple_Light_Controller/main.c
-		_main          		CODE           	127E	0000	242
-
-../Temple_Light_Controller/main.c estimated size: 242
-
-../Temple_Light_Controller/eeprom.h
+./eeprom.h
 		_memory_read   		CODE           	15FA	0000	32
 		_memory_write  		CODE           	13E2	0000	104
 
-../Temple_Light_Controller/eeprom.h estimated size: 136
+./eeprom.h estimated size: 136
+
+./functions.h
+		_status_check  		CODE           	1162	0000	284
+		_welcome_msg   		CODE           	144A	0000	94
+
+./functions.h estimated size: 378
 
 shared
 		__initialization		CODE           	1558	0000	44
 
 shared estimated size: 44
+
+main.c
+		_main          		CODE           	127E	0000	242
+
+main.c estimated size: 242
 

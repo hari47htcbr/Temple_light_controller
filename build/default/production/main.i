@@ -1,4 +1,4 @@
-# 1 "../Temple_Light_Controller/main.c"
+# 1 "main.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,7 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:/Users/hari4/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "../Temple_Light_Controller/main.c" 2
+# 1 "main.c" 2
 
 
 
@@ -89,7 +89,7 @@ size_t strxfrm_l (char *restrict, const char *restrict, size_t, locale_t);
 
 
 void *memccpy (void *restrict, const void *restrict, int, size_t);
-# 10 "../Temple_Light_Controller/main.c" 2
+# 10 "main.c" 2
 # 1 "D:\\Microchip\\xc8\\v2.32\\pic\\include\\c99\\stdlib.h" 1 3
 # 21 "D:\\Microchip\\xc8\\v2.32\\pic\\include\\c99\\stdlib.h" 3
 # 1 "D:\\Microchip\\xc8\\v2.32\\pic\\include\\c99\\bits/alltypes.h" 1 3
@@ -148,8 +148,8 @@ uldiv_t uldiv (unsigned long, unsigned long);
 
 
 size_t __ctype_get_mb_cur_max(void);
-# 11 "../Temple_Light_Controller/main.c" 2
-# 89 "../Temple_Light_Controller/main.c"
+# 11 "main.c" 2
+# 77 "main.c"
 #pragma config FOSC = HSHP
 #pragma config PLLCFG = OFF
 #pragma config PRICLKEN = ON
@@ -159,7 +159,7 @@ size_t __ctype_get_mb_cur_max(void);
 
 #pragma config PWRTEN = OFF
 #pragma config BOREN = ON
-#pragma config BORV = 250
+#pragma config BORV = 220
 
 
 #pragma config WDTEN = ON
@@ -9755,7 +9755,7 @@ __attribute__((__unsupported__("The " "Write_b_eep" " routine is no longer suppo
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 34 "C:/Users/hari4/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\\pic\\include\\xc.h" 2 3
-# 153 "../Temple_Light_Controller/main.c" 2
+# 141 "main.c" 2
 
 
 char a,b,c,d,y,z,i;
@@ -9776,7 +9776,7 @@ char relay=0;
 
 
 
-# 1 "../Temple_Light_Controller/lcd.h" 1
+# 1 "./lcd.h" 1
 
 
 
@@ -9821,7 +9821,7 @@ void lcd_clear(void)
 }
 void lcd_line(unsigned int a, signed int b)
 {
- int temp;
+ unsigned int temp;
  if(a == 1)
  {
    temp = 0x80 + b - 1;
@@ -9954,11 +9954,11 @@ if(format==2.0)
 }
 
 }
-# 173 "../Temple_Light_Controller/main.c" 2
+# 161 "main.c" 2
 
 
 
-# 1 "../Temple_Light_Controller/eeprom.h" 1
+# 1 "./eeprom.h" 1
 
 
 
@@ -10012,15 +10012,15 @@ void memory_write(char address,char data)
    EECON1bits.WR=0;
    _delay((unsigned long)((1)*(20000000/4000.0)));
 }
-# 177 "../Temple_Light_Controller/main.c" 2
+# 165 "main.c" 2
 
 
 
 
 
 
-# 1 "../Temple_Light_Controller/functions.h" 1
-# 10 "../Temple_Light_Controller/functions.h"
+# 1 "./functions.h" 1
+# 10 "./functions.h"
 void welcome_msg(void)
 {
     lcd_clear();
@@ -10053,6 +10053,7 @@ char set_value(char line,char position,char value,char range)
             return value;
             break;
         }
+
     }
 }
 
@@ -10060,6 +10061,7 @@ char set_value(char line,char position,char value,char range)
 void status_check(void)
 {
     char no=0;
+
 
     _delay((unsigned long)((10)*(20000000/4000.0)));
 
@@ -10093,41 +10095,25 @@ void status_check(void)
     _delay((unsigned long)((1)*(20000000/4000.0)));
 
 }
-# 184 "../Temple_Light_Controller/main.c" 2
-# 1 "../Temple_Light_Controller/enums.h" 1
+# 172 "main.c" 2
+# 1 "./enums.h" 1
 
 enum set_state
 {
-    OFF = 0x00,
-    ON
-};
+    ON,
+    OFF
+}set_state;
 
-enum set_bit
+enum bit_set
 {
-    LOW = 0,
+    LOW,
     HIGH
-};
-
-enum month
-{
-    Jan = 0x01,
-    Feb,
-    Mar,
-    Apr,
-    May,
-    Jun,
-    Jul,
-    Aug,
-    Sep,
-    Oct,
-    Nov,
-    Dec
-};
-# 185 "../Temple_Light_Controller/main.c" 2
+}set_bit;
+# 173 "main.c" 2
 
 void main(void)
 {
-    char no = 0;
+    char no=0;
     TRISB=0X01;
     TRISC=0X17;
 
@@ -10143,6 +10129,9 @@ void main(void)
 
     status1 = SSPSTAT;
     status2 = SSPCON2;
+
+
+
 
     _delay((unsigned long)((10)*(20000000/4000.0)));
 
